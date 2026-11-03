@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>In-App Purchase Fee Savings Calculator</title>
+<style>
+  :root {
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1a1a1a;
+    background: #f6f7f9;
+    line-height: 1.45;
+  }
+  header, main, footer {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 1rem 1.25rem;
+  }
+  h1 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+  h2 { font-size: 1.15rem; margin: 1.5rem 0 0.75rem; }
+  .notice {
+    background: #fff3cd;
+    border: 1px solid #e3b341;
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  .notice .checked {
+    display: block;
+    font-weight: 400;
+    font-size: 0.85rem;
+    margin-top: 0.35rem;
+  }
+  section {
+    background: #ffffff;
+    border: 1px solid #e3e5e9;
+    border-radius: 10px;
+    padding: 1rem 1.25rem 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+  fieldset {
+    border: 1px solid #dfe2e7;
+    border-radius: 8px;
+    margin: 0 0 1rem;
+    padding: 0.75rem 1rem 1rem;
+  }
+  legend {
+    font-weight: 700;
+    padding: 0 0.4rem;
+    font-size: 0.95rem;
+  }
+  .field-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.75rem;
+    flex: 1 1 180px;
+  }
+  .field label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+  .field input {
+    padding: 0.5rem 0.6rem;
+    font-size: 1rem;
+    border: 1px solid #c7cbd1;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 260px;
+  }
+  .field input:focus {
+    outline: 2px solid #2563eb;
+    outline-offset: 1px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.5rem;
+  }
+  caption {
+    text-align: left;
+    font-size: 0.85rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+  }
+  th, td {
+    text-align: left;
+    padding: 0.6rem 0.5rem;
+    border-bottom: 1px solid #e8e9ec;
+    font-size: 0.95rem;
+  }
+  th {
+    background: #eef1f6;
+    font-weight: 700;
+  }
+  td.num, th.num { text-align: right; }
+  tr.best-row td { background: #eafaf0; }
+  .net-cell { font-weight: 700; }
+  footer {
+    font-size: 0.82rem;
+    color: #555;
+  }
+  footer a { color: #2563eb; }
+  @media (max-width: 480px) {
+    header, main, footer { padding: 0.75rem 0.85rem; }
+    section { padding: 0.85rem; }
+    table, thead, tbody, th, td, tr { display: block; width: 100%; }
+    thead { position: absolute; top: -9999px; left: -9999px; }
+    tr {
+      border: 1px solid #e3e5e9;
+      border-radius: 8px;
+      margin-bottom: 0.75rem;
+      padding: 0.4rem 0.6rem;
+    }
+    tr.best-row { border-color: #37a06a; }
+    td {
+      border: none;
+      padding: 0.35rem 0.1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    td::before {
+      content: attr(data-label);
+      font-weight: 700;
+      font-size: 0.78rem;
+      color: #555;
+      padding-right: 0.75rem;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Fee Savings Calculator</h1>
+  <p>Enter your monthly in-app revenue and see modeled net revenue under Apple, Google, and web-shop fee scenarios.</p>
+  <div class="notice" role="alert">
+    Store and platform commission rules are in active flux and partly contested in ongoing litigation
+    (Epic v. Apple, Epic v. Google). The rates below are editable estimates, not guarantees. Verify
+    current numbers against Apple's and Google's own developer policy pages before quoting any client.
+    <span class="checked">Rates last checked: 2026-10-26</span>
+  </div>
+</header>
+
+<main>
+  <section id="inputs">
+    <h2>Your numbers</h2>
+    <div class="field-row">
+      <div class="field">
+        <label for="grossRevenue">Monthly gross in-app revenue (USD)</label>
+        <input type="number" id="grossRevenue" value="10000" min="0" step="1" inputmode="decimal">
+      </div>
+      <div class="field">
+        <label for="avgTransaction">Average transaction size (USD)</label>
+        <input type="number" id="avgTransaction" value="20" min="0.01" step="0.01" inputmode="decimal">
+      </div>
+    </div>
+  </section>
+
+  <section id="rates">
+    <h2>Editable fee rates</h2>
+
+    <fieldset>
+      <legend>Apple App Store &mdash; in-app purchase</legend>
+      <div class="field-row">
+        <div class="field">
+          <label for="appleStandard">Standard commission (%)</label>
+          <input type="number" id="appleStandard" value="30" min="0" max="100" step="0.1">
+        </div>
+        <div class="field">
+          <label for="appleSBP">Small Business Program commission (%)</label>
+          <input type="number" id="appleSBP" value="15" min="0" max="100" step="0.1">
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Apple App Store &mdash; external purchase link (US)</legend>
+      <div class="field-row">
+        <div class="field">
+          <label for="appleLinkLow">Low estimate (%)</label>
+          <input type="number" id="appleLinkLow" value="0" min="0" max="100" step="0.1">
+        </div>
+        <div class="field">
+          <label for="appleLinkMid">Mid estimate (%)</label>
+          <input type="number" id="appleLinkMid" value="5" min="0" max="100" step="0.1">
+        </div>
+        <div class="field">
+          <label for="appleLinkHigh">High estimate (%)</label>
+          <input type="number" id="appleLinkHigh" value="15" min="0" max="100" step="0.1">
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Google Play</legend>
+      <div class="field-row">
+        <div class="field">
+          <label for="googleLow">Service fee, lower tier (%)</label>
+          <input type="number" id="googleLow" value="10" min="0" max="100" step="0.1">
+        </div>
+        <div class="field">
+          <label for="googleHigh">Service fee, upper tier (%)</label>
+          <input type="number" id="googleHigh" value="20" min="0" max="100" step="0.1">
+        </div>
+        <div class="field">
+          <label for="googleBilling">Play Billing surcharge (%)</label>
+          <input type="number" id="googleBilling" value="5" min="0" max="100" step="0.1">
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Web shop &mdash; payment processor</legend>
+      <div class="field-row">
+        <div class="field">
+          <label for="processorPercent">Percentage fee (%)</label>
+          <input type="number" id="processorPercent" value="2.9" min="0" max="100" step="0.01">
+        </div>
+        <div class="field">
+          <label for="processorFixed">Fixed fee per transaction (USD)</label>
+          <input type="number" id="processorFixed" value="0.30" min="0" step="0.01">
+        </div>
+      </div>
+    </fieldset>
+  </section>
+
+  <section id="results">
+    <h2>Net revenue by scenario</h2>
+    <table aria-live="polite">
+      <caption>Highlighted row = highest modeled net revenue for your current inputs.</caption>
+      <thead>
+        <tr>
+          <th scope="col">Scenario</th>
+          <th scope="col" class="num">Effective fee</th>
+          <th scope="col" class="num">Net revenue</th>
+          <th scope="col" class="num">vs. Apple standard</th>
+        </tr>
+      </thead>
+      <tbody id="resultsBody">
+      </tbody>
+    </table>
+  </section>
+</main>
+
+<footer>
+  <p>
+    Fee figures are editable estimates based on secondary reporting as of 2026-10-26 (Apple in-app
+    standard/Small Business Program rates, Apple's proposed US external-link commission filing, and
+    Google Play's service-fee tiers plus the Play Billing surcharge). They are not pulled from Apple's
+    or Google's primary documentation automatically and several of the external-link figures are
+    unconfirmed or under active litigation (Epic v. Apple, Epic v. Google). Re-verify against
+    <em>Apple's "external purchase link" entitlement page</em> and the
+    <em>Google Play Console policy pages</em> before relying on this for a client.
+  </p>
+  <p>This page runs entirely in your browser. No data is sent anywhere, no scripts are loaded from
+    outside this file, and nothing is tracked.</p>
+</footer>
+
+<script>
+  function fmtMoney(n) {
+    return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+  function fmtPercent(n) {
+    return n.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 2 }) + '%';
+  }
+  function numVal(id) {
+    var v = parseFloat(document.getElementById(id).value);
+    return isNaN(v) ? 0 : v;
+  }
+
+  function calculate() {
+    var gross = numVal('grossRevenue');
+    var avgT = numVal('avgTransaction');
+
+    var appleStandard = numVal('appleStandard');
+    var appleSBP = numVal('appleSBP');
+    var appleLinkLow = numVal('appleLinkLow');
+    var appleLinkMid = numVal('appleLinkMid');
+    var appleLinkHigh = numVal('appleLinkHigh');
+    var googleLow = numVal('googleLow');
+    var googleHigh = numVal('googleHigh');
+    var googleBilling = numVal('googleBilling');
+    var processorPercent = numVal('processorPercent');
+    var processorFixed = numVal('processorFixed');
+
+    function netFromRate(ratePercent) {
+      return gross * (1 - ratePercent / 100);
+    }
+
+    var scenarios = [
+      { label: 'Apple — standard in-app', rate: appleStandard, net: netFromRate(appleStandard) },
+      { label: 'Apple — Small Business Program in-app', rate: appleSBP, net: netFromRate(appleSBP) },
+      { label: 'Apple — external link, low estimate', rate: appleLinkLow, net: netFromRate(appleLinkLow) },
+      { label: 'Apple — external link, mid estimate', rate: appleLinkMid, net: netFromRate(appleLinkMid) },
+      { label: 'Apple — external link, high estimate', rate: appleLinkHigh, net: netFromRate(appleLinkHigh) },
+      { label: 'Google Play — lower tier + Play Billing', rate: googleLow + googleBilling, net: netFromRate(googleLow + googleBilling) },
+      { label: 'Google Play — upper tier + Play Billing', rate: googleHigh + googleBilling, net: netFromRate(googleHigh + googleBilling) }
+    ];
+
+    var webShopRate, webShopNet;
+    if (avgT > 0 && gross > 0) {
+      var txCount = gross / avgT;
+      var totalFee = gross * (processorPercent / 100) + txCount * processorFixed;
+      webShopNet = gross - totalFee;
+      webShopRate = (totalFee / gross) * 100;
+    } else {
+      webShopNet = gross;
+      webShopRate = 0;
+    }
+    scenarios.push({ label: 'Web shop — payment processor only', rate: webShopRate, net: webShopNet });
+
+    var baseline = scenarios[0].net;
+    var bestIndex = 0;
+    for (var i = 1; i < scenarios.length; i++) {
+      if (scenarios[i].net > scenarios[bestIndex].net) bestIndex = i;
+    }
+
+    var body = document.getElementById('resultsBody');
+    body.innerHTML = '';
+    scenarios.forEach(function (s, idx) {
+      var diff = s.net - baseline;
+      var sign = diff > 0 ? '+' : '';
+      var row = document.createElement('tr');
+      if (idx === bestIndex) row.className = 'best-row';
+
+      var tdLabel = document.createElement('td');
+      tdLabel.setAttribute('data-label', 'Scenario');
+      tdLabel.textContent = s.label;
+
+      var tdRate = document.createElement('td');
+      tdRate.className = 'num';
+      tdRate.setAttribute('data-label', 'Effective fee');
+      tdRate.textContent = fmtPercent(s.rate);
+
+      var tdNet = document.createElement('td');
+      tdNet.className = 'num net-cell';
+      tdNet.setAttribute('data-label', 'Net revenue');
+      tdNet.textContent = fmtMoney(s.net);
+
+      var tdDiff = document.createElement('td');
+      tdDiff.className = 'num';
+      tdDiff.setAttribute('data-label', 'vs. Apple standard');
+      tdDiff.textContent = sign + fmtMoney(diff).replace('$', '$');
+
+      row.appendChild(tdLabel);
+      row.appendChild(tdRate);
+      row.appendChild(tdNet);
+      row.appendChild(tdDiff);
+      body.appendChild(row);
+    });
+  }
+
+  document.querySelectorAll('input').forEach(function (el) {
+    el.addEventListener('input', calculate);
+  });
+  calculate();
+</script>
+
+<!--
+HAND-COMPUTED VERIFICATION EXAMPLES
+(these match the arithmetic the script above performs; recompute by hand to
+check this page before trusting it with a client)
+
+Formulas:
+  rate-based net      = gross * (1 - ratePercent / 100)
+  web-shop total fee  = gross * (processorPercent / 100) + (gross / avgTransaction) * processorFixed
+  web-shop net        = gross - web-shop total fee
+
+Example A — gross = $10,000, avgTransaction = $20, all default rates
+  (30 / 15 / 0 / 5 / 15 / 10+5 / 20+5 / processor 2.9% + $0.30)
+  Apple standard (30%):        10000 * 0.70              = $7,000.00
+  Apple SBP (15%):              10000 * 0.85              = $8,500.00
+  Apple link low (0%):          10000 * 1.00              = $10,000.00
+  Apple link mid (5%):          10000 * 0.95              = $9,500.00
+  Apple link high (15%):        10000 * 0.85              = $8,500.00
+  Google lower + billing (15%): 10000 * 0.85              = $8,500.00
+  Google upper + billing (25%): 10000 * 0.75              = $7,500.00
+  Web shop: tx count = 10000/20 = 500
+            fee = 10000*0.029 + 500*0.30 = 290 + 150      = $440.00
+            net = 10000 - 440                             = $9,560.00  (effective 4.4%)
+
+Example B — gross = $50,000, avgTransaction = $5 (micro-purchases), default rates
+  Apple standard (30%):        50000 * 0.70              = $35,000.00
+  Apple SBP (15%):              50000 * 0.85              = $42,500.00
+  Apple link low (0%):          50000 * 1.00              = $50,000.00
+  Apple link mid (5%):          50000 * 0.95              = $47,500.00
+  Apple link high (15%):        50000 * 0.85              = $42,500.00
+  Google lower + billing (15%): 50000 * 0.85              = $42,500.00
+  Google upper + billing (25%): 50000 * 0.75              = $37,500.00
+  Web shop: tx count = 50000/5 = 10000
+            fee = 50000*0.029 + 10000*0.30 = 1450 + 3000   = $4,450.00
+            net = 50000 - 4450                             = $45,550.00 (effective 8.9%)
+            -> smaller average transactions make the processor's fixed $0.30
+               per-transaction fee bite much harder, even though web-shop still
+               beats Apple/Google here.
+
+Example C — gross = $1,000, avgTransaction = $2.99 (very small IAP), default rates
+  Apple standard (30%):        1000 * 0.70               = $700.00
+  Apple SBP (15%):              1000 * 0.85               = $850.00
+  Apple link low (0%):          1000 * 1.00               = $1,000.00
+  Apple link mid (5%):          1000 * 0.95               = $950.00
+  Apple link high (15%):        1000 * 0.85               = $850.00
+  Google lower + billing (15%): 1000 * 0.85               = $850.00
+  Google upper + billing (25%): 1000 * 0.75               = $750.00
+  Web shop: tx count = 1000/2.99 = 334.448160...
+            fee = 1000*0.029 + 334.448160*0.30
+                = 29 + 100.334448 = $129.334448
+            net = 1000 - 129.334448                        = $870.67 (rounded, effective ~12.93%)
+            -> at very small transaction sizes the web shop's fixed per-transaction
+               fee can erase most of its advantage over Apple's external link rates.
+-->
+</body>
+</html>

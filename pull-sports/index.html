@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Pull Sports</title>
+<style>
+  :root{--bg:#18202b;--panel:#222d3b;--ink:#eef3f8;--mute:#8fa1b4;--acc:#ffb83d}
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:14px/1.3 system-ui,sans-serif;overscroll-behavior:none}
+  body{display:flex;flex-direction:column;touch-action:none;user-select:none;-webkit-user-select:none}
+  nav{display:flex;gap:8px;padding:8px 16px;justify-content:center;flex:none}
+  nav button{background:var(--panel);color:var(--ink);border:1px solid #33445a;border-radius:8px;padding:8px 16px;font:inherit;font-weight:600}
+  nav button.on{background:var(--acc);color:#1a1200;border-color:var(--acc)}
+  #stage{flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
+  canvas{background:#000;border-radius:8px;touch-action:none}
+  #tune{display:grid;grid-template-columns:repeat(5,1fr);gap:8px 16px;padding:8px 16px 16px;flex:none;color:var(--mute);font-size:12px}
+  #tune label{display:flex;flex-direction:column;gap:2px}
+  #tune input{width:100%}
+  @media (max-width:560px){#tune{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<nav>
+  <button data-m="pitch">Pitch</button>
+  <button data-m="bat">Bat swing</button>
+  <button data-m="golf">Golf</button>
+</nav>
+<div id="stage"><canvas id="c" width="800" height="450"></canvas></div>
+<div id="tune">
+  <label>Max pull <input type="range" id="maxPull" min="50" max="160"></label>
+  <label>Rubber elasticity <input type="range" id="soft" min="0" max="100"></label>
+  <label>Input ratio <input type="range" id="ratio" min="40" max="200"></label>
+  <label>Cancel threshold <input type="range" id="minPull" min="0" max="80"></label>
+  <label>Response curve <input type="range" id="curve" min="20" max="100"></label>
+</div>
+<script>
+'use strict';
+const W = 800, H = 450;
+const cv = document.getElementById('c'), ctx = cv.getContext('2d');
+const V = (x, y) => ({x, y});
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const rand = (a, b) => a + Math.random() * (b - a);
+
+/* ------------------------------------------------------------------ *
+ * Pull: the reusable pull-to-launch input.
+ *  - grab zone around the anchor starts a pull
+ *  - handle follows the finger, scaled by `ratio`
+ *  - past `maxPull` the band over-stretches softly (visual only);
+ *    power stays clamped to 0..1
+ *  - releasing under `minPull` cancels (no action)
+ *  - handle springs back to the anchor after release
+ * Output of read(): vector from handle to anchor (the "launch" vector),
+ * its unit direction, angle, and power 0..1.
+ * ------------------------------------------------------------------ */
+class Pull {
+  constructor() {
+    Object.assign(this, {maxPull: 90, minPull: 16, grab: 60, ratio: 1, soft: .3,
+                         aimMin: .4, dots: 10, dotStep: .05, curve: .5});
+    this.anchor = V(0, 0); this.handle = V(0, 0); this.vel = V(0, 0);
+    this.active = false; this.enabled = true;
+  }
+  setAnchor(x, y) { this.anchor = V(x, y); if (!this.active) this.handle = V(x, y); }
+  down(p) {
+    if (!this.enabled || Math.hypot(p.x - this.anchor.x, p.y - this.anchor.y) > this.grab) return false;
+    this.active = true; this.move(p); return true;
+  }
+  move(p) {
+    if (!this.active) return;
+    let dx = (p.x - this.anchor.x) * this.ratio, dy = (p.y - this.anchor.y) * this.ratio;
+    const d = Math.hypot(dx, dy);
+    if (d > this.maxPull) {
+      const e = this.maxPull + this.maxPull * this.soft * Math.tanh((d - this.maxPull) / this.maxPull);
+      dx *= e / d; dy *= e / d;
+    }
+    this.handle = V(this.anchor.x + dx, this.anchor.y + dy);
+  }
+  read() {
+    const vx = this.anchor.x - this.handle.x, vy = this.anchor.y - this.handle.y;
+    const d = Math.hypot(vx, vy), pull = Math.min(d, this.maxPull);
+    const t = pull / this.maxPull;
+    return {vx, vy, pull, t, power: Math.pow(t, this.curve), angle: Math.atan2(vy, vx),
+            dir: d ? V(vx / d, vy / d) : V(0, 0)};
+  }
+  up() {
+    if (!this.active) return null;
+    this.active = false; this.vel = V(0, 0);
+    const r = this.read();
+    return r.pull >= this.minPull ? r : Object.assign(r, {cancelled: true});
+  }
+  tick(dt) {                                   // damped spring back to anchor
+    if (this.active) return;
+    for (const a of ['x', 'y']) {
+      this.vel[a] += (-900 * (this.handle[a] - this.anchor[a]) - 28 * this.vel[a]) * dt;
+      this.handle[a] += this.vel[a] * dt;
+    }
+  }
+  draw(c, pts) {
+    const a = this.anchor, h = this.handle, r = this.read();
+    if (this.active) {
+      c.setLineDash([4, 6]); c.strokeStyle = 'rgba(255,255,255,.35)'; c.lineWidth = 1;
+      c.beginPath(); c.arc(a.x, a.y, this.maxPull, 0, 7); c.stroke(); c.setLineDash([]);
+      if (pts && r.t >= this.aimMin) {
+        pts.forEach((p, i) => {
+          if (p.y > 400) return;
+          c.fillStyle = `rgba(255,255,255,${1 - i / pts.length * .85})`;
+          c.beginPath(); c.arc(p.x, p.y, 3.2 - i / pts.length * 1.4, 0, 7); c.fill();
+        });
+      }
+    }
+    c.strokeStyle = '#6b4a2b'; c.lineWidth = 6; c.lineCap = 'round';
+    c.beginPath(); c.moveTo(a.x, a.y + 28); c.lineTo(a.x, a.y + 4); c.stroke();
+    c.strokeStyle = '#3a1f10'; c.lineWidth = 5 - 2.5 * r.power;
+    c.beginPath(); c.moveTo(a.x - 6, a.y); c.lineTo(h.x, h.y); c.moveTo(a.x + 6, a.y); c.lineTo(h.x, h.y); c.stroke();
+    c.fillStyle = `hsl(${120 - 120 * r.power},85%,55%)`;
+    c.beginPath(); c.arc(h.x, h.y, 9, 0, 7); c.fill();
+    c.strokeStyle = '#fff'; c.lineWidth = 1.5; c.stroke();
+  }
+}
+const pull = new Pull();
+
+const ballistic = (p, v, g, n, dt) => {
+  const o = [];
+  for (let i = 1; i <= n; i++) { const t = i * dt; o.push(V(p.x + v.x * t, p.y + v.y * t + .5 * g * t * t)); }
+  return o;
+};
+
+/* ---------------------------- drawing helpers ---------------------------- */
+function sky(top, bot) { const g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, top); g.addColorStop(1, bot); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H); }
+function ground(y, col) { ctx.fillStyle = col; ctx.fillRect(0, y, W, H - y); }
+function text(s, x, y, size, col, align) { ctx.font = `700 ${size}px system-ui,sans-serif`; ctx.textAlign = align || 'center'; ctx.fillStyle = col || '#fff'; ctx.fillText(s, x, y); }
+function ball(p, r) { ctx.fillStyle = '#fff'; ctx.strokeStyle = '#b33'; ctx.lineWidth = 1; ctx.beginPath(); ctx.arc(p.x, p.y, r || 6, 0, 7); ctx.fill(); ctx.stroke(); }
+function person(x, y, col) {
+  ctx.strokeStyle = col; ctx.lineWidth = 5; ctx.lineCap = 'round';
+  ctx.beginPath(); ctx.moveTo(x, y - 60); ctx.lineTo(x, y - 24); ctx.moveTo(x, y - 24); ctx.lineTo(x - 10, y); ctx.moveTo(x, y - 24); ctx.lineTo(x + 10, y); ctx.stroke();
+  ctx.fillStyle = col; ctx.beginPath(); ctx.arc(x, y - 70, 9, 0, 7); ctx.fill();
+}
+
+/* --------------------------------- modes --------------------------------- */
+const modes = {};
+
+/* PITCH: pull direction = throw direction, power = speed. */
+modes.pitch = {
+  PLATE: 690, ZTOP: 250, ZBOT: 330, G: 260,
+  init() {
+    Object.assign(pull, {maxPull: 100, minPull: 40, grab: 70, dotStep: .08, curve: .5});
+    pull.setAnchor(130, 300); pull.enabled = true;
+    Object.assign(this, {b: null, cool: 0, strikes: 0, balls: 0, msg: 'Pull back and release to pitch', sub: ''});
+  },
+  vel(r) { const s = 280 + r.power * 620; return V(r.dir.x * s, r.dir.y * s); },
+  preview(r) { return ballistic(pull.anchor, this.vel(r), this.G, pull.dots, pull.dotStep); },
+  release(r) {
+    if (this.b) return;
+    const v = this.vel(r);
+    this.b = {p: V(pull.anchor.x, pull.anchor.y), v, judged: false, mph: Math.round(Math.hypot(v.x, v.y) * .13)};
+    pull.enabled = false;
+  },
+  judge(t, strike) {
+    if (strike) this.strikes++; else this.balls++;
+    this.msg = t; this.sub = `${this.b.mph} mph   ${this.balls}-${this.strikes}`;
+    if (this.strikes >= 3) { this.msg = 'STRIKEOUT!'; this.strikes = this.balls = 0; }
+    else if (this.balls >= 4) { this.msg = 'Walk'; this.strikes = this.balls = 0; }
+    this.b.judged = true; this.cool = 1.3;
+  },
+  update(dt) {
+    const b = this.b; if (!b) return;
+    b.v.y += this.G * dt; b.p.x += b.v.x * dt; b.p.y += b.v.y * dt;
+    if (!b.judged) {
+      if (b.p.x >= this.PLATE) {
+        const s = b.p.y >= this.ZTOP && b.p.y <= this.ZBOT;
+        this.judge(s ? 'STRIKE!' : (b.p.y < this.ZTOP ? 'Ball - high' : 'Ball - low'), s);
+      } else if (b.p.y > 372 || b.p.x < 0 || b.p.y < -60) this.judge('Wild pitch - ball', false);
+    } else if ((this.cool -= dt) <= 0) { this.b = null; pull.enabled = true; }
+  },
+  draw() {
+    sky('#7fb8e8', '#cfe8f8'); ground(372, '#5a9b4a');
+    ctx.fillStyle = '#c89b64'; ctx.beginPath(); ctx.ellipse(130, 372, 60, 8, 0, 0, 7); ctx.fill();
+    person(130, 372, '#223'); person(725, 372, '#a22');
+    ctx.fillStyle = '#fff'; ctx.fillRect(this.PLATE - 14, 370, 28, 4);
+    ctx.strokeStyle = 'rgba(255,220,80,.9)'; ctx.lineWidth = 2; ctx.setLineDash([5, 4]);
+    ctx.strokeRect(this.PLATE - 8, this.ZTOP, 16, this.ZBOT - this.ZTOP); ctx.setLineDash([]);
+    if (this.b) ball(this.b.p);
+    text(this.msg, W / 2, 50, 30); text(this.sub, W / 2, 78, 16, '#123');
+  }
+};
+
+/* BAT: pull angle = hit direction, power = swing speed + exit velocity,
+   release time = timing, handle height = bat height. */
+modes.bat = {
+  HITX: 170, G: 520, WALL: 790,
+  init() {
+    Object.assign(pull, {maxPull: 95, minPull: 38, grab: 75, dotStep: .09, curve: .5});
+    pull.setAnchor(90, 310); pull.enabled = true;
+    Object.assign(this, {b: null, sw: null, wait: .8, hits: 0, hr: 0, swings: 0, msg: 'Pull back, release to swing', sub: ''});
+  },
+  batY() { return pull.anchor.y - .5 * (pull.handle.y - pull.anchor.y); },
+  exit(r, e, q) {
+    const a = clamp(r.angle + e * .4, -1.45, .6);
+    const s = (250 + r.power * 750) * (1 - .45 * Math.abs(e)) * (1 - .4 * q);
+    return V(Math.cos(a) * s, Math.sin(a) * s);
+  },
+  preview(r) { return ballistic(V(this.HITX, this.batY()), this.exit(r, 0, 0), this.G, pull.dots, pull.dotStep); },
+  release(r) {
+    if (!this.b || this.b.mode !== 'pitched' || this.sw) return;
+    this.sw = {t: 0, dur: .2 - .09 * r.power, r, y: this.batY(), done: false};
+    this.swings++;
+  },
+  end(msg) { this.msg = msg; this.sub = `hits ${this.hits}   HR ${this.hr}   swings ${this.swings}`; this.b.mode = 'dead'; this.cool = 1.4; },
+  update(dt) {
+    if (!this.b) {
+      if ((this.wait -= dt) <= 0) {
+        const sp = rand(380, 500), t = (740 - this.HITX) / sp, ty = rand(270, 350);
+        this.b = {p: V(740, 300), v: V(-sp, (ty - 300 - .5 * 140 * t * t) / t), mode: 'pitched', land: null};
+        this.sw = null; this.msg = ''; this.sub = '';
+      }
+      return;
+    }
+    const b = this.b;
+    if (b.mode === 'pitched') {
+      b.v.y += 140 * dt; b.p.x += b.v.x * dt; b.p.y += b.v.y * dt;
+      if (b.p.x < 20) this.end('Taken - strike');
+    } else if (b.mode === 'batted') {
+      b.v.y += this.G * dt; b.p.x += b.v.x * dt; b.p.y += b.v.y * dt;
+      if (b.p.y >= 372) {
+        b.p.y = 372; if (b.land === null) b.land = b.p.x;
+        if (Math.abs(b.v.y) > 60) { b.v.y *= -.45; b.v.x *= .8; } else { b.v.y = 0; b.v.x *= 1 - 1.2 * dt; }
+        if (Math.abs(b.v.x) < 10) { this.hits++; this.end(b.land < 320 ? 'Weak contact' : b.land < 520 ? 'Single' : 'Double'); }
+      }
+      if (b.p.x >= this.WALL) {
+        this.hits++;
+        if (b.p.y < 300) { this.hr++; this.end('HOME RUN!'); } else this.end('Off the wall - double');
+      }
+    } else if ((this.cool -= dt) <= 0) { this.b = null; this.sw = null; this.wait = .6; pull.enabled = true; }
+    const s = this.sw;
+    if (s) {
+      s.t += dt;
+      if (!s.done && s.t >= s.dur) {
+        s.done = true;
+        if (b.mode === 'pitched') {
+          const dx = b.p.x - this.HITX, dy = b.p.y - s.y;
+          if (Math.abs(dx) < 38 && Math.abs(dy) < 26) {
+            b.v = this.exit(s.r, clamp(dx / 38, -1, 1), Math.abs(dy) / 26); b.mode = 'batted';
+            this.msg = ''; this.sub = '';
+          } else this.end('Swing and a miss');
+        }
+      }
+      if (s.t > s.dur + .3) this.sw = null;
+    }
+  },
+  draw() {
+    sky('#2b3a67', '#8b6fb3'); ground(372, '#476b3a');
+    ctx.fillStyle = '#cdbb9a'; ctx.fillRect(0, 372, W, 6);
+    person(140, 372, '#eee'); person(745, 372, '#e55');
+    const s = this.sw;
+    if (s || pull.active) {
+      const f = s ? clamp(s.t / s.dur, 0, 1) : 0, y = s ? s.y : this.batY();
+      const a = -2.6 + 2.4 * f, px = this.HITX - 45;
+      ctx.strokeStyle = '#d9b27a'; ctx.lineWidth = 7; ctx.lineCap = 'round';
+      ctx.beginPath(); ctx.moveTo(px, y); ctx.lineTo(px + 55 * Math.cos(a), y + 55 * Math.sin(a)); ctx.stroke();
+    }
+    if (this.b) ball(this.b.p);
+    text(this.msg, W / 2, 50, 30); text(this.sub, W / 2, 78, 16, '#ddd');
+  }
+};
+
+/* GOLF: pull back from the ball; direction = launch, power = club speed. */
+modes.golf = {
+  GY: 380, G: 520, VMAX: 580,
+  init() {
+    Object.assign(pull, {maxPull: 110, minPull: 44, grab: 60, dotStep: .16, curve: 1});
+    Object.assign(this, {strokes: 0, hole: 1, msg: 'Pull back and release to swing', sub: '', fly: null, cool: 0});
+    this.newHole();
+  },
+  newHole() { this.pos = V(90, this.GY - 6); this.last = V(90, this.GY - 6); this.hx = rand(500, 740); this.strokes = 0; pull.setAnchor(this.pos.x, this.pos.y); pull.enabled = true; },
+  vel(r) { const s = r.power * this.VMAX; return V(r.dir.x * s, r.dir.y * s); },
+  preview(r) { return ballistic(this.pos, this.vel(r), this.G, pull.dots, pull.dotStep); },
+  release(r) {
+    if (this.fly) return;
+    this.strokes++; this.last = V(this.pos.x, this.pos.y);
+    this.fly = {p: V(this.pos.x, this.pos.y), v: this.vel(r), rolling: false};
+    pull.enabled = false; this.msg = ''; this.sub = '';
+  },
+  settle(msg) {
+    this.fly = null; this.msg = msg; this.cool = 1.2;
+  },
+  update(dt) {
+    if (!this.fly) { if (this.cool > 0 && (this.cool -= dt) <= 0) { if (this.sunk) { this.sunk = false; this.hole++; this.newHole(); } else { pull.setAnchor(this.pos.x, this.pos.y); pull.enabled = true; } } return; }
+    const f = this.fly;
+    if (!f.rolling) f.v.y += this.G * dt;
+    f.p.x += f.v.x * dt; f.p.y += f.v.y * dt;
+    if (f.p.y >= this.GY - 6) {
+      f.p.y = this.GY - 6;
+      if (Math.abs(f.v.y) > 70) { f.v.y *= -.35; f.v.x *= .55; } else { f.v.y = 0; f.rolling = true; }
+    }
+    if (f.rolling) {
+      f.v.x -= Math.sign(f.v.x) * 320 * dt;
+      if (Math.abs(f.p.x - this.hx) < 7 && Math.abs(f.v.x) < 180) { this.pos = f.p; this.sunk = true; this.settle(`In the hole! ${this.strokes} stroke${this.strokes > 1 ? 's' : ''} (par 3)`); return; }
+      if (Math.abs(f.v.x) < 8) { this.pos = V(f.p.x, f.p.y); this.sub = `Stroke ${this.strokes}`; this.settle(''); return; }
+    }
+    if (f.p.x > W - 4 || f.p.x < 4) { this.strokes++; this.pos = this.last; this.settle('Out of bounds +1'); }
+  },
+  draw() {
+    sky('#9fd3ff', '#e5f4ff'); ground(this.GY, '#4f9a3f');
+    ctx.fillStyle = '#222'; ctx.fillRect(this.hx - 6, this.GY, 12, 4);
+    ctx.strokeStyle = '#eee'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(this.hx, this.GY); ctx.lineTo(this.hx, this.GY - 60); ctx.stroke();
+    ctx.fillStyle = '#e33'; ctx.beginPath(); ctx.moveTo(this.hx, this.GY - 60); ctx.lineTo(this.hx + 24, this.GY - 52); ctx.lineTo(this.hx, this.GY - 44); ctx.fill();
+    const a = pull.anchor; person(a.x - 30, this.GY, '#335');
+    ctx.strokeStyle = '#999'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(a.x - 30, this.GY - 46);
+    ctx.lineTo(a.x - 30 + (pull.handle.x - a.x) * .5, this.GY - 46 + (pull.handle.y - a.y) * .5 - 14); ctx.stroke();
+    ball(this.fly ? this.fly.p : this.pos, 5);
+    text(this.msg, W / 2, 50, 28); text(`Hole ${this.hole}   Strokes ${this.strokes}`, W / 2, 78, 16, '#123');
+    if (this.sub) text(this.sub, W / 2, 100, 14, '#123');
+  }
+};
+
+/* ---------------------------------- app ---------------------------------- */
+let mode;
+const sliders = {maxPull: 1, minPull: 1, soft: .01, ratio: .01, curve: .01};
+function syncSliders() { for (const k in sliders) document.getElementById(k).value = Math.round(pull[k] / sliders[k]); }
+for (const k in sliders) document.getElementById(k).addEventListener('input', e => { pull[k] = e.target.value * sliders[k]; });
+function setMode(k) {
+  mode = modes[k]; mode.init(); syncSliders();
+  document.querySelectorAll('nav button').forEach(b => b.classList.toggle('on', b.dataset.m === k));
+}
+document.querySelectorAll('nav button').forEach(b => b.addEventListener('click', () => setMode(b.dataset.m)));
+
+const pt = e => { const r = cv.getBoundingClientRect(); return V((e.clientX - r.left) * W / r.width, (e.clientY - r.top) * H / r.height); };
+cv.addEventListener('pointerdown', e => { cv.setPointerCapture(e.pointerId); pull.down(pt(e)); });
+cv.addEventListener('pointermove', e => pull.move(pt(e)));
+const end = e => { const r = pull.up(); if (r && !r.cancelled && e.type === 'pointerup') mode.release(r); };
+cv.addEventListener('pointerup', end); cv.addEventListener('pointercancel', end);
+
+function fit() {
+  const s = document.getElementById('stage'), k = Math.min(s.clientWidth / W, s.clientHeight / H);
+  cv.style.width = W * k + 'px'; cv.style.height = H * k + 'px';
+}
+addEventListener('resize', fit);
+
+let last = performance.now();
+function frame(now) {
+  const dt = Math.min(.033, (now - last) / 1000); last = now;
+  pull.tick(dt); mode.update(dt);
+  mode.draw();
+  const r = pull.read();
+  pull.draw(ctx, pull.active && r.t >= pull.aimMin ? mode.preview(r) : null);
+  requestAnimationFrame(frame);
+}
+fit(); setMode('pitch'); requestAnimationFrame(frame);
+</script>
+</body>
+</html>

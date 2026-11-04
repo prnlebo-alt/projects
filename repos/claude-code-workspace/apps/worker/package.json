@@ -1,0 +1,22 @@
+{
+  "name": "worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -b --pretty",
+    "typecheck": "tsc -b --pretty",
+    "lint": "eslint src --max-warnings 0",
+    "start": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "@mi/agents": "*",
+    "@mi/db": "*",
+    "@mi/models": "*",
+    "@mi/schemas": "*",
+    "@mi/tools": "*"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2"
+  }
+}

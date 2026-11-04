@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gauntlet Arena</title>
+  <link rel="stylesheet" href="src/style.css" />
+</head>
+<body>
+  <div id="game-shell">
+    <div id="render-root" aria-label="Gauntlet Arena 3D viewport"></div>
+    <div id="hud" aria-live="polite">
+      <div class="hud-panel hud-left"><div class="eyebrow">VITALS</div><div class="meter-row"><span>HP</span><div class="bar"><div id="health-fill"></div></div><strong id="health-value">100</strong></div></div>
+      <div class="hud-panel hud-center"><div class="eyebrow">ARENA // SIGMA-9</div><div id="status-text">LOCKDOWN ACTIVE</div></div>
+      <div class="hud-panel hud-right"><div><span class="eyebrow">CELL</span> <strong id="ammo-value">12 / 12</strong></div><div><span class="eyebrow">HOSTILES</span> <strong id="hostile-value">3</strong></div></div>
+    </div>
+    <div id="reticle" aria-hidden="true"><i></i><i></i><i></i><i></i><b></b></div>
+    <div id="hitmarker" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <div id="damage-vignette" aria-hidden="true"></div><div id="muzzle-flash" aria-hidden="true"></div>
+    <div id="start-card" class="modal-card"><div class="modal-kicker">COMBAT SIMULATION</div><h1>GAUNTLET <span>ARENA</span></h1><p>Clear the drone lockdown. Stay mobile. Own the room.</p><button id="start-button">ENTER ARENA</button><div class="controls"><span>WASD MOVE</span><span>MOUSE LOOK</span><span>LMB FIRE</span><span>R RELOAD</span></div></div>
+    <div id="end-card" class="modal-card hidden" role="dialog" aria-modal="true"><div id="end-kicker" class="modal-kicker">ENCOUNTER COMPLETE</div><h2 id="end-title">SECTOR SECURED</h2><p id="end-copy">All hostile signals have been neutralized.</p><button id="restart-button">RESTART RUN</button><div id="end-stats"></div></div>
+    <div id="tip">CLICK TO LOCK CURSOR · ESC RELEASES</div>
+  </div>
+  <script src="https://unpkg.com/three@0.128.0/build/three.min.js"></script>
+  <script src="src/game.js"></script>
+</body>
+</html>

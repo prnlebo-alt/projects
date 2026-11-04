@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96" fill="none">
+  <!--
+    Aurora Glass mascot v1 — compass-star.
+    Gold compass rose with sapphire jewel at center.
+    Designed to read at 48-96px and match the skin's gold/sapphire identity.
+  -->
+
+  <defs>
+    <radialGradient id="goldRadial" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FBE4A8"/>
+      <stop offset="60%" stop-color="#D9AF60"/>
+      <stop offset="100%" stop-color="#8E6A30"/>
+    </radialGradient>
+    <radialGradient id="sapphireGrad" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#B8C8F5"/>
+      <stop offset="50%" stop-color="#5A6EC8"/>
+      <stop offset="100%" stop-color="#2A3680"/>
+    </radialGradient>
+    <radialGradient id="haloGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FBE4A8" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#FBE4A8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Outer halo glow -->
+  <circle cx="48" cy="48" r="46" fill="url(#haloGrad)"/>
+
+  <!-- Outer ring (gold) -->
+  <circle cx="48" cy="48" r="42" fill="none" stroke="#D9AF60" stroke-width="1" opacity="0.6"/>
+  <circle cx="48" cy="48" r="36" fill="none" stroke="#FBE4A8" stroke-width="0.5" opacity="0.5"/>
+
+  <!-- Long compass points (N/E/S/W) -->
+  <g fill="url(#goldRadial)" stroke="#FBE4A8" stroke-width="0.5">
+    <!-- N -->
+    <polygon points="48,6 51,46 48,50 45,46"/>
+    <!-- E -->
+    <polygon points="90,48 50,51 46,48 50,45"/>
+    <!-- S -->
+    <polygon points="48,90 51,50 48,46 45,50"/>
+    <!-- W -->
+    <polygon points="6,48 46,51 50,48 46,45"/>
+  </g>
+
+  <!-- Diagonal points (NE/SE/SW/NW), smaller -->
+  <g fill="#B89048" opacity="0.85" stroke="#FBE4A8" stroke-width="0.3">
+    <polygon points="76,20 52,44 50,48 54,46"/>
+    <polygon points="76,76 52,52 48,50 54,54"/>
+    <polygon points="20,76 44,52 46,48 42,54"/>
+    <polygon points="20,20 44,44 48,46 42,42"/>
+  </g>
+
+  <!-- Inner gold ring -->
+  <circle cx="48" cy="48" r="11" fill="#0A0518" stroke="#FBE4A8" stroke-width="1"/>
+
+  <!-- Central sapphire jewel -->
+  <circle cx="48" cy="48" r="8" fill="url(#sapphireGrad)"/>
+
+  <!-- Sapphire highlight -->
+  <ellipse cx="46" cy="45" rx="3" ry="2" fill="#FFFFFF" opacity="0.55"/>
+
+  <!-- Cardinal point highlights (tiny gold beads) -->
+  <circle cx="48" cy="9" r="1.2" fill="#FBE4A8"/>
+  <circle cx="87" cy="48" r="1.2" fill="#FBE4A8"/>
+  <circle cx="48" cy="87" r="1.2" fill="#FBE4A8"/>
+  <circle cx="9" cy="48" r="1.2" fill="#FBE4A8"/>
+</svg>

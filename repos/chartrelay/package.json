@@ -1,0 +1,54 @@
+{
+  "name": "chartrelay",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "postbuild": "node scripts/copy-static.mjs",
+    "start": "node .next/standalone/server.js",
+    "lint": "oxlint --deny-warnings src tests && tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check:env": "node scripts/check-env.mjs",
+    "check:uptime": "node scripts/uptime-check.mjs",
+    "backup": "node scripts/backup.mjs",
+    "verify:user": "node scripts/verify-user.mjs",
+    "metrics": "node scripts/metrics-weekly.mjs",
+    "golden": "node scripts/golden-set.mjs",
+    "owner:status": "node scripts/owner-status.mjs",
+    "ship:preflight": "node scripts/ship-preflight.mjs",
+    "verify:journey": "node scripts/verify-journey.mjs"
+  },
+  "dependencies": {
+    "@noble/hashes": "^2.0.1",
+    "better-sqlite3": "^13.0.3",
+    "bcryptjs": "^3.0.2",
+    "drizzle-orm": "^0.45.3",
+    "jose": "^6.1.0",
+    "nanoid": "^5.1.6",
+    "next": "16.3.5",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "sharp": "^0.35.4",
+    "stripe": "^22.6.2",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.6",
+    "@types/react-dom": "^19.2.3",
+    "oxlint": "^1.85.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.10"
+  },
+  "allowScripts": {
+    "better-sqlite3@13.0.3": true,
+    "fsevents": false
+  }
+}

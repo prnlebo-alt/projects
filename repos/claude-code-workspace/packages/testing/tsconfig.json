@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src"
+  },
+  "include": ["src"],
+  "references": [
+    { "path": "../schemas" },
+    { "path": "../db" },
+    { "path": "../tools" },
+    { "path": "../models" },
+    { "path": "../evidence" },
+    { "path": "../agents" },
+    { "path": "../prompts" }
+  ]
+}

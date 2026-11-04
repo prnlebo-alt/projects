@@ -1,0 +1,78 @@
+name: Phase 1 CI
+
+# Reproducible Phase 1 acceptance sequence (second independent-review round,
+# defect #4): the same install -> migrate -> seed -> typecheck -> lint ->
+# test -> benchmark/gate -> build sequence a contributor runs locally,
+# enforced on every PR against a real PostgreSQL 16 instance so a
+# regression in any Phase 1 gate fails the workflow, not just the local
+# machine that happened to run it last.
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  phase1:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: market_intelligence
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      DATABASE_URL: postgresql://postgres:postgres@localhost:5432/market_intelligence
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Migrate
+        run: npm run db:migrate -w @mi/db
+
+      - name: Seed
+        run: npm run db:seed -w @mi/db
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Test
+        run: npm test
+
+      # Fails the job on any Test A gate below its BENCHMARK.md threshold —
+      # see packages/testing/src/benchmark/run.ts (process.exitCode = 1 on
+      # any metric with pass:false).
+      - name: Benchmark
+        run: npm run benchmark
+
+      # Regenerates docs/evidence/phase1-gate.md from this run's live DB
+      # state for the record; the actual pass/fail enforcement already
+      # happened in the Benchmark step above, so this can't silently mask a
+      # failure — it only ever runs after that step has already succeeded.
+      - name: Regenerate Phase 1 gate report
+        run: npm run gate:phase1
+
+      - name: Build
+        run: npm run build

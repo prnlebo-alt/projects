@@ -1,0 +1,16 @@
+{
+  "name": "@chartrelay/mcp",
+  "version": "0.2.0",
+  "description": "MCP server for ChartRelay: publish-ready charts (PNG/SVG) with alt text and chart-quality review.",
+  "type": "module",
+  "bin": { "chartrelay-mcp": "index.js" },
+  "files": ["index.js", "README.md"],
+  "engines": { "node": ">=20" },
+  "license": "MIT",
+  "keywords": ["mcp", "model-context-protocol", "charts", "data-visualization", "ai-agents", "accessibility"],
+  "scripts": { "test": "node --test" },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "zod": "^4.1.0"
+  }
+}

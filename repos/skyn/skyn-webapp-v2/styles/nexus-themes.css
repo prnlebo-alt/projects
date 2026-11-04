@@ -1,0 +1,913 @@
+/*
+  NEXUS AI — 44-Skin Theme System
+  ================================
+  Usage in Next.js:
+    1. Import in globals.css: @import './nexus-themes.css';
+    2. Apply to <html> or root div: data-theme="midnight"
+    3. User preference saved to localStorage: nexus_theme
+    4. Theme switcher reads/writes: document.documentElement.setAttribute('data-theme', skinId)
+
+  All colors use CSS custom properties.
+  Every component reads from these vars — swap the theme, everything updates.
+
+  Legal note: These are 100% original designs. No platform branding, logos,
+  or trademarked UI patterns from Anthropic, OpenAI, or Google.
+*/
+
+/* ===================== BASE COMPONENT VARS ===================== */
+/* Components reference these — never hardcode hex values in components */
+:root {
+  --nx-bg:          #0e0e11;
+  --nx-sidebar:     #14141a;
+  --nx-topbar:      #14141a;
+  --nx-border:      #2a2a35;
+  --nx-text:        #f0eff8;
+  --nx-text-muted:  #7a7890;
+  --nx-accent:      #a78bfa;
+  --nx-accent2:     #60a5fa;
+  --nx-bubble-ai:   #1e1e28;
+  --nx-bubble-user: #252530;
+  --nx-badge-bg:    #1d1d28;
+  --nx-font:        system-ui, -apple-system, sans-serif;
+  --nx-radius:      8px;
+  --nx-radius-lg:   12px;
+  --nx-bubble-radius-ai:   3px 14px 14px 14px;
+  --nx-bubble-radius-user: 14px 14px 3px 14px;
+  --nx-bubble-border-ai:   1px solid var(--nx-border);
+  --nx-bubble-border-user: 1px solid var(--nx-border);
+  --nx-bubble-shadow:      none;
+  --nx-bubble-texture:     none;
+  --nx-page-texture:       none;
+  --nx-custom-bg-image:    none;
+  --nx-custom-bg-overlay:  linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0));
+}
+
+[data-custom-bg="true"] {
+  --nx-bg: var(--nx-custom-bg-overlay), var(--nx-custom-bg-image);
+  --nx-sidebar: color-mix(in srgb, var(--nx-bg-solid, #0e0e11) 76%, transparent);
+  --nx-topbar: color-mix(in srgb, var(--nx-bg-solid, #0e0e11) 72%, transparent);
+  --nx-bubble-ai: color-mix(in srgb, var(--nx-bg-solid, #0e0e11) 74%, white 10%);
+  --nx-bubble-user: color-mix(in srgb, var(--nx-accent) 38%, var(--nx-bg-solid, #0e0e11) 62%);
+}
+
+/* ===================== DARK SKINS (10) ===================== */
+
+[data-theme="midnight"] {
+  --nx-bg:          #0e0e11;
+  --nx-sidebar:     #14141a;
+  --nx-topbar:      #14141a;
+  --nx-border:      #2a2a35;
+  --nx-text:        #f0eff8;
+  --nx-text-muted:  #7a7890;
+  --nx-accent:      #a78bfa;
+  --nx-accent2:     #60a5fa;
+  --nx-bubble-ai:   #1e1e28;
+  --nx-bubble-user: #252530;
+  --nx-badge-bg:    #1d1d28;
+  --nx-font:        system-ui, -apple-system, sans-serif;
+}
+
+[data-theme="obsidian"] {
+  --nx-bg:          #111111;
+  --nx-sidebar:     #181818;
+  --nx-topbar:      #181818;
+  --nx-border:      #2c2c2c;
+  --nx-text:        #e8e8e8;
+  --nx-text-muted:  #666666;
+  --nx-accent:      #e0e0e0;
+  --nx-accent2:     #aaaaaa;
+  --nx-bubble-ai:   #1e1e1e;
+  --nx-bubble-user: #242424;
+  --nx-badge-bg:    #202020;
+  --nx-font:        Georgia, 'Times New Roman', serif;
+}
+
+[data-theme="aurora"] {
+  --nx-bg:          #050d12;
+  --nx-sidebar:     #071520;
+  --nx-topbar:      #071520;
+  --nx-border:      #0d2535;
+  --nx-text:        #cff5e7;
+  --nx-text-muted:  #4a8a70;
+  --nx-accent:      #34d399;
+  --nx-accent2:     #06b6d4;
+  --nx-bubble-ai:   #091e2e;
+  --nx-bubble-user: #0d2030;
+  --nx-badge-bg:    #0a1a24;
+  --nx-font:        system-ui, -apple-system, sans-serif;
+}
+
+[data-theme="crimson"] {
+  --nx-bg:          #0f0708;
+  --nx-sidebar:     #160a0b;
+  --nx-topbar:      #160a0b;
+  --nx-border:      #2e1518;
+  --nx-text:        #fde8e8;
+  --nx-text-muted:  #8a4a4a;
+  --nx-accent:      #f87171;
+  --nx-accent2:     #fb923c;
+  --nx-bubble-ai:   #1c0e0f;
+  --nx-bubble-user: #201214;
+  --nx-badge-bg:    #180c0d;
+  --nx-font:        system-ui, -apple-system, sans-serif;
+}
+
+[data-theme="navy"] {
+  --nx-bg:          #080c18;
+  --nx-sidebar:     #0d1228;
+  --nx-topbar:      #0d1228;
+  --nx-border:      #182040;
+  --nx-text:        #dde8ff;
+  --nx-text-muted:  #4a5a8a;
+  --nx-accent:      #7aa2f7;
+  --nx-accent2:     #9d7cf7;
+  --nx-bubble-ai:   #0f1830;
+  --nx-bubble-user: #121c38;
+  --nx-badge-bg:    #0e1628;
+  --nx-font:        system-ui, -apple-system, sans-serif;
+}
+
+[data-theme="forest"] {
+  --nx-bg:          #080f08;
+  --nx-sidebar:     #0e180e;
+  --nx-topbar:      #0e180e;
+  --nx-border:      #1a2e1a;
+  --nx-text:        #d4f0d4;
+  --nx-text-muted:  #3a6a3a;
+  --nx-accent:      #4ade80;
+  --nx-accent2:     #a3e635;
+  --nx-bubble-ai:   #0f1c0f;
+  --nx-bubble-user: #132013;
+  --nx-badge-bg:    #0d180d;
+  --nx-font:        system-ui, -apple-system, sans-serif;
+}
+
+[data-theme="amber"] {
+  --nx-bg:          #0f0a04;
+  --nx-sidebar:     #1a1205;
+  --nx-topbar:      #1a1205;
+  --nx-border:      #332208;
+  --nx-text:        #fef3c7;
+  --nx-text-muted:  #7a5a18;
+  --nx-accent:      #f59e0b;
+  --nx-accent2:     #ef4444;
+  --nx-bubble-ai:   #1c1408;
+  --nx-bubble-user: #20180a;
+  --nx-badge-bg:    #180f06;
+  --nx-font:        system-ui, -apple-system, sans-serif;
+}
+
+[data-theme="rose"] {
+  --nx-bg:          #0f080c;
+  --nx-sidebar:     #180c14;
+  --nx-topbar:      #180c14;
+  --nx-border:      #2e1828;
+  --nx-text:        #fce7f3;
+  --nx-text-muted:  #804060;
+  --nx-accent:      #f472b6;
+  --nx-accent2:     #c084fc;
+  --nx-bubble-ai:   #1c1018;
+  --nx-bubble-user: #201420;
+  --nx-badge-bg:    #180d16;
+  --nx-font:        system-ui, -apple-system, sans-serif;
+}
+
+[data-theme="slate"] {
+  --nx-bg:          #0c0f14;
+  --nx-sidebar:     #10151e;
+  --nx-topbar:      #10151e;
+  --nx-border:      #1e2535;
+  --nx-text:        #cbd5e1;
+  --nx-text-muted:  #4a5568;
+  --nx-accent:      #94a3b8;
+  --nx-accent2:     #64748b;
+  --nx-bubble-ai:   #141925;
+  --nx-bubble-user: #181e2c;
+  --nx-badge-bg:    #121724;
+  --nx-font:        system-ui, -apple-system, sans-serif;
+}
+
+[data-theme="cyber"] {
+  --nx-bg:          #040608;
+  --nx-sidebar:     #06090e;
+  --nx-topbar:      #06090e;
+  --nx-border:      #0a1020;
+  --nx-text:        #00ffcc;
+  --nx-text-muted:  #007755;
+  --nx-accent:      #00ffcc;
+  --nx-accent2:     #ff00aa;
+  --nx-bubble-ai:   #080f18;
+  --nx-bubble-user: #0a1220;
+  --nx-badge-bg:    #060c15;
+  --nx-font:        'Courier New', Courier, monospace;
+}
+
+/* ===================== LIGHT SKINS (10) ===================== */
+
+[data-theme="ivory"] {
+  --nx-bg:          #fafaf5;
+  --nx-sidebar:     #f4f4ec;
+  --nx-topbar:      #fafaf5;
+  --nx-border:      #e8e8dc;
+  --nx-text:        #2c2c20;
+  --nx-text-muted:  #7a7a60;
+  --nx-accent:      #5c5c40;
+  --nx-accent2:     #8a8a60;
+  --nx-bubble-ai:   #f0f0e8;
+  --nx-bubble-user: #e8e8dc;
+  --nx-badge-bg:    #eeeee4;
+  --nx-font:        Georgia, 'Times New Roman', serif;
+}
+
+[data-theme="snow"] {
+  --nx-bg:          #ffffff;
+  --nx-sidebar:     #f8f9fa;
+  --nx-topbar:      #ffffff;
+  --nx-border:      #e9ecef;
+  --nx-text:        #212529;
+  --nx-text-muted:  #868e96;
+  --nx-accent:      #228be6;
+  --nx-accent2:     #7950f2;
+  --nx-bubble-ai:   #f1f3f5;
+  --nx-bubble-user: #e9ecef;
+  --nx-badge-bg:    #f8f9fa;
+  --nx-font:        system-ui, -apple-system, sans-serif;
+}
+
+[data-theme="cream"] {
+  --nx-bg:          #fffef7;
+  --nx-sidebar:     #faf9ec;
+  --nx-topbar:      #fffef7;
+  --nx-border:      #e8e5cc;
+  --nx-text:        #3d3820;
+  --nx-text-muted:  #8a8060;
+  --nx-accent:      #b8860b;
+  --nx-accent2:     #cd853f;
+  --nx-bubble-ai:   #f4f2e4;
+  --nx-bubble-user: #ece9d4;
+  --nx-badge-bg:    #f0eed8;
+  --nx-font:        Georgia, 'Times New Roman', serif;
+}
+
+[data-theme="arctic"] {
+  --nx-bg:          #f0f8ff;
+  --nx-sidebar:     #e6f4ff;
+  --nx-topbar:      #f0f8ff;
+  --nx-border:      #c8dff0;
+  --nx-text:        #1a3050;
+  --nx-text-muted:  #5a7890;
+  --nx-accent:      #0088cc;
+  --nx-accent2:     #00aadd;
+  --nx-bubble-ai:   #e4f0fc;
+  --nx-bubble-user: #d8ecf8;
+  --nx-badge-bg:    #e0eef8;
+  --nx-font:        system-ui, -apple-system, sans-serif;
+}
+
+[data-theme="blush"] {
+  --nx-bg:          #fff5f5;
+  --nx-sidebar:     #ffe8e8;
+  --nx-topbar:      #fff5f5;
+  --nx-border:      #ffd0d0;
+  --nx-text:        #4a1a1a;
+  --nx-text-muted:  #9a5555;
+  --nx-accent:      #e53e3e;
+  --nx-accent2:     #ed8936;
+  --nx-bubble-ai:   #fff0f0;
+  --nx-bubble-user: #ffe0e0;
+  --nx-badge-bg:    #ffeaea;
+  --nx-font:        system-ui, -apple-system, sans-serif;
+}
+
+[data-theme="mint"] {
+  --nx-bg:          #f0fff8;
+  --nx-sidebar:     #e0fff0;
+  --nx-topbar:      #f0fff8;
+  --nx-border:      #b8f0d8;
+  --nx-text:        #0d3028;
+  --nx-text-muted:  #3a7a5a;
+  --nx-accent:      #059669;
+  --nx-accent2:     #0891b2;
+  --nx-bubble-ai:   #e4faf0;
+  --nx-bubble-user: #d4f4e4;
+  --nx-badge-bg:    #ddf8ec;
+  --nx-font:        system-ui, -apple-system, sans-serif;
+}
+
+[data-theme="lavender"] {
+  --nx-bg:          #faf5ff;
+  --nx-sidebar:     #f3e8ff;
+  --nx-topbar:      #faf5ff;
+  --nx-border:      #ddd6fe;
+  --nx-text:        #2d1b5e;
+  --nx-text-muted:  #7c5cbf;
+  --nx-accent:      #7c3aed;
+  --nx-accent2:     #db2777;
+  --nx-bubble-ai:   #f5edff;
+  --nx-bubble-user: #ede4ff;
+  --nx-badge-bg:    #f0e8ff;
+  --nx-font:        system-ui, -apple-system, sans-serif;
+}
+
+[data-theme="sunrise"] {
+  --nx-bg:          #fffbf0;
+  --nx-sidebar:     #fef6d8;
+  --nx-topbar:      #fffbf0;
+  --nx-border:      #fde68a;
+  --nx-text:        #451a03;
+  --nx-text-muted:  #92400e;
+  --nx-accent:      #d97706;
+  --nx-accent2:     #dc2626;
+  --nx-bubble-ai:   #fef9e8;
+  --nx-bubble-user: #fdf2d0;
+  --nx-badge-bg:    #fef6dc;
+  --nx-font:        system-ui, -apple-system, sans-serif;
+}
+
+[data-theme="paper"] {
+  --nx-bg:          #fefefe;
+  --nx-sidebar:     #f7f5f0;
+  --nx-topbar:      #fefefe;
+  --nx-border:      #e0dcd4;
+  --nx-text:        #1c1814;
+  --nx-text-muted:  #706860;
+  --nx-accent:      #2c4a7c;
+  --nx-accent2:     #5c3a8c;
+  --nx-bubble-ai:   #f4f2ec;
+  --nx-bubble-user: #eceae4;
+  --nx-badge-bg:    #f2f0ea;
+  --nx-font:        'Palatino Linotype', Palatino, serif;
+}
+
+[data-theme="zinc"] {
+  --nx-bg:          #fafafa;
+  --nx-sidebar:     #f4f4f5;
+  --nx-topbar:      #fafafa;
+  --nx-border:      #e4e4e7;
+  --nx-text:        #18181b;
+  --nx-text-muted:  #71717a;
+  --nx-accent:      #3f3f46;
+  --nx-accent2:     #52525b;
+  --nx-bubble-ai:   #f0f0f1;
+  --nx-bubble-user: #e8e8ea;
+  --nx-badge-bg:    #f0f0f2;
+  --nx-font:        system-ui, -apple-system, sans-serif;
+}
+
+/* ===================== VIBRANT SKINS (6) ===================== */
+
+[data-theme="neon"] {
+  --nx-bg:          #04001a;
+  --nx-sidebar:     #070028;
+  --nx-topbar:      #070028;
+  --nx-border:      #200050;
+  --nx-text:        #ffffff;
+  --nx-text-muted:  #cc00ff;
+  --nx-accent:      #ff00ff;
+  --nx-accent2:     #00ffff;
+  --nx-bubble-ai:   #0a003c;
+  --nx-bubble-user: #0e0040;
+  --nx-badge-bg:    #080030;
+  --nx-font:        'Courier New', Courier, monospace;
+}
+
+[data-theme="candy"] {
+  --nx-bg:          #fff0f8;
+  --nx-sidebar:     #ffe0f4;
+  --nx-topbar:      #fff0f8;
+  --nx-border:      #ffb3e0;
+  --nx-text:        #5c0040;
+  --nx-text-muted:  #c04080;
+  --nx-accent:      #ff1493;
+  --nx-accent2:     #ff6600;
+  --nx-bubble-ai:   #ffe8f5;
+  --nx-bubble-user: #ffd4ee;
+  --nx-badge-bg:    #ffeaf8;
+  --nx-font:        system-ui, -apple-system, sans-serif;
+}
+
+[data-theme="ocean"] {
+  --nx-bg:          #001830;
+  --nx-sidebar:     #002040;
+  --nx-topbar:      #002040;
+  --nx-border:      #003060;
+  --nx-text:        #a0e8ff;
+  --nx-text-muted:  #3080a0;
+  --nx-accent:      #00d4ff;
+  --nx-accent2:     #00ff88;
+  --nx-bubble-ai:   #002848;
+  --nx-bubble-user: #002e52;
+  --nx-badge-bg:    #002040;
+  --nx-font:        system-ui, -apple-system, sans-serif;
+}
+
+[data-theme="lava"] {
+  --nx-bg:          #0a0000;
+  --nx-sidebar:     #150000;
+  --nx-topbar:      #150000;
+  --nx-border:      #300000;
+  --nx-text:        #ffe0c8;
+  --nx-text-muted:  #883020;
+  --nx-accent:      #ff4500;
+  --nx-accent2:     #ff8c00;
+  --nx-bubble-ai:   #1a0800;
+  --nx-bubble-user: #200a00;
+  --nx-badge-bg:    #160500;
+  --nx-font:        system-ui, -apple-system, sans-serif;
+}
+
+[data-theme="galaxy"] {
+  --nx-bg:          #020010;
+  --nx-sidebar:     #05001e;
+  --nx-topbar:      #05001e;
+  --nx-border:      #100040;
+  --nx-text:        #e8d8ff;
+  --nx-text-muted:  #6040a0;
+  --nx-accent:      #9d4edd;
+  --nx-accent2:     #e040fb;
+  --nx-bubble-ai:   #080028;
+  --nx-bubble-user: #0c0030;
+  --nx-badge-bg:    #060020;
+  --nx-font:        system-ui, -apple-system, sans-serif;
+}
+
+[data-theme="matrix"] {
+  --nx-bg:          #000800;
+  --nx-sidebar:     #001200;
+  --nx-topbar:      #001200;
+  --nx-border:      #002400;
+  --nx-text:        #00ff41;
+  --nx-text-muted:  #007020;
+  --nx-accent:      #00ff41;
+  --nx-accent2:     #008f11;
+  --nx-bubble-ai:   #001800;
+  --nx-bubble-user: #002000;
+  --nx-badge-bg:    #001000;
+  --nx-font:        'Courier New', Courier, monospace;
+}
+
+/* ===================== SPECIAL SKINS (4) ===================== */
+
+[data-theme="retro"] {
+  --nx-bg:          #1a1008;
+  --nx-sidebar:     #241808;
+  --nx-topbar:      #241808;
+  --nx-border:      #402808;
+  --nx-text:        #ffcc88;
+  --nx-text-muted:  #aa7040;
+  --nx-accent:      #ff9900;
+  --nx-accent2:     #ff5500;
+  --nx-bubble-ai:   #2a1a0c;
+  --nx-bubble-user: #301e10;
+  --nx-badge-bg:    #281608;
+  --nx-font:        'Courier New', Courier, monospace;
+}
+
+[data-theme="nordic"] {
+  --nx-bg:          #1a1e28;
+  --nx-sidebar:     #1e2430;
+  --nx-topbar:      #1e2430;
+  --nx-border:      #2a3040;
+  --nx-text:        #d0d8e8;
+  --nx-text-muted:  #6070a0;
+  --nx-accent:      #88aacc;
+  --nx-accent2:     #5c90b0;
+  --nx-bubble-ai:   #222838;
+  --nx-bubble-user: #262c3c;
+  --nx-badge-bg:    #202638;
+  --nx-font:        Georgia, 'Times New Roman', serif;
+}
+
+[data-theme="sakura"] {
+  --nx-bg:          #1a0a10;
+  --nx-sidebar:     #220e16;
+  --nx-topbar:      #220e16;
+  --nx-border:      #3c1828;
+  --nx-text:        #ffe0ec;
+  --nx-text-muted:  #9a5068;
+  --nx-accent:      #ff7096;
+  --nx-accent2:     #ff9fc8;
+  --nx-bubble-ai:   #28101a;
+  --nx-bubble-user: #2e141e;
+  --nx-badge-bg:    #240e18;
+  --nx-font:        Georgia, 'Times New Roman', serif;
+}
+
+[data-theme="sand"] {
+  --nx-bg:          #f8f0e0;
+  --nx-sidebar:     #f0e8d0;
+  --nx-topbar:      #f8f0e0;
+  --nx-border:      #d8c8a8;
+  --nx-text:        #3c2c10;
+  --nx-text-muted:  #8a7040;
+  --nx-accent:      #8b6914;
+  --nx-accent2:     #c0874c;
+  --nx-bubble-ai:   #ece4cc;
+  --nx-bubble-user: #e4dcc0;
+  --nx-badge-bg:    #ece0c4;
+  --nx-font:        Georgia, 'Times New Roman', serif;
+}
+
+[data-theme="mono"] {
+  --nx-bg:          #111111;
+  --nx-sidebar:     #161616;
+  --nx-topbar:      #161616;
+  --nx-border:      #2a2a2a;
+  --nx-text:        #f5f5f5;
+  --nx-text-muted:  #666666;
+  --nx-accent:      #f5f5f5;
+  --nx-accent2:     #999999;
+  --nx-bubble-ai:   #1e1e1e;
+  --nx-bubble-user: #222222;
+  --nx-badge-bg:    #1a1a1a;
+  --nx-font:        'Courier New', Courier, monospace;
+}
+
+/* ===================== COMPONENT CLASSES ===================== */
+/* Use these in your JSX/TSX — they read from the theme vars above */
+
+.nx-app              { background: var(--nx-bg); font-family: var(--nx-font); color: var(--nx-text); }
+.nx-sidebar          { background: var(--nx-sidebar); border-right: 1px solid var(--nx-border); }
+.nx-topbar           { background: var(--nx-topbar); border-bottom: 1px solid var(--nx-border); }
+.nx-border           { border-color: var(--nx-border); }
+.nx-text             { color: var(--nx-text); }
+.nx-text-muted       { color: var(--nx-text-muted); }
+.nx-accent           { color: var(--nx-accent); }
+.nx-accent-bg        { background: color-mix(in srgb, var(--nx-accent) 15%, transparent); }
+.nx-accent-border    { border-color: color-mix(in srgb, var(--nx-accent) 40%, transparent); }
+.nx-bubble-ai        { background: var(--nx-bubble-ai); border-left: 2px solid var(--nx-accent); }
+.nx-bubble-user      { background: var(--nx-bubble-user); }
+.nx-badge            { background: var(--nx-badge-bg); }
+.nx-input            { background: var(--nx-bubble-ai); border-color: var(--nx-border); color: var(--nx-text); }
+.nx-btn-primary      { background: var(--nx-accent); color: var(--nx-bg); }
+.nx-btn-ghost        { border-color: var(--nx-border); color: var(--nx-text-muted); }
+.nx-nav-active       { background: var(--nx-bubble-user); border-left: 2px solid var(--nx-accent); color: var(--nx-text); }
+
+/* ===================== SPECIAL: iOS GLASS (5 sub-variants) =====================
+  
+  The glass skin requires backdrop-filter support (all modern browsers).
+  It uses CSS mesh gradients on the --nx-bg layer plus frosted panel overlays.
+  Sub-variants (daylight, dusk, midnight, warm, emerald) swap only the gradient bg
+  and accent color — the glass layer values stay constant.
+
+  Architecture note: because glass relies on backdrop-filter over a gradient bg,
+  the app root needs position:relative and the bg gradient lives on a ::before
+  pseudo-element (or a dedicated <div class="nx-glass-bg">) behind everything.
+  All panels set background to rgba(255,255,255, var(--nx-glass-opacity)) so they
+  frost correctly over the gradient.
+*/
+
+/* Base glass token — shared across all sub-variants */
+[data-theme^="glass"] {
+  --nx-glass-opacity:      0.42;
+  --nx-glass-blur:         32px;
+  --nx-glass-saturate:     1.8;
+  --nx-glass-border-alpha: rgba(255,255,255,0.68);
+  --nx-font:               -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', sans-serif;
+  --nx-radius:             12px;
+  --nx-radius-lg:          18px;
+}
+
+/* Daylight — sky blue + lavender + blush */
+[data-theme="glass-day"] {
+  --nx-bg-gradient:
+    radial-gradient(ellipse 60% 50% at 20% 20%, #b0d4f8 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 80% 70%, #c9b8f5 0%, transparent 55%),
+    radial-gradient(ellipse 40% 40% at 55% 10%, #f7c6e0 0%, transparent 50%),
+    radial-gradient(ellipse 50% 40% at 10% 80%, #a8e6d0 0%, transparent 55%),
+    linear-gradient(160deg, #daeeff 0%, #ede8ff 40%, #fce4f4 70%, #d4f0e8 100%);
+  --nx-bg:          #daeeff;
+  --nx-sidebar:     rgba(255,255,255,0.42);
+  --nx-topbar:      rgba(255,255,255,0.32);
+  --nx-border:      rgba(255,255,255,0.68);
+  --nx-text:        #1c1c3e;
+  --nx-text-muted:  #6060a0;
+  --nx-accent:      #586eff;
+  --nx-accent2:     #a855f7;
+  --nx-bubble-ai:   rgba(255,255,255,0.55);
+  --nx-bubble-user: rgba(88,110,255,0.85);
+  --nx-badge-bg:    rgba(255,255,255,0.5);
+}
+
+/* Dusk — rose + violet + peach */
+[data-theme="glass-dusk"] {
+  --nx-bg-gradient:
+    radial-gradient(ellipse 60% 50% at 15% 25%, #f5b8e8 0%, transparent 55%),
+    radial-gradient(ellipse 50% 50% at 85% 60%, #c8a0f0 0%, transparent 55%),
+    radial-gradient(ellipse 45% 45% at 50% 5%, #ffb8a0 0%, transparent 50%),
+    linear-gradient(160deg, #ffd4f0 0%, #e8c8ff 40%, #ffcca8 70%, #c8b0ff 100%);
+  --nx-bg:          #ffd4f0;
+  --nx-sidebar:     rgba(255,255,255,0.40);
+  --nx-topbar:      rgba(255,255,255,0.30);
+  --nx-border:      rgba(255,255,255,0.65);
+  --nx-text:        #2a1040;
+  --nx-text-muted:  #8040a0;
+  --nx-accent:      #9b50e8;
+  --nx-accent2:     #ec4899;
+  --nx-bubble-ai:   rgba(255,255,255,0.52);
+  --nx-bubble-user: rgba(155,80,232,0.85);
+  --nx-badge-bg:    rgba(255,255,255,0.48);
+}
+
+/* Midnight glass — deep navy, near-black with low-opacity frost */
+[data-theme="glass-night"] {
+  --nx-bg-gradient:
+    radial-gradient(ellipse 55% 50% at 20% 30%, #1a2060 0%, transparent 55%),
+    radial-gradient(ellipse 50% 50% at 80% 70%, #0d1840 0%, transparent 55%),
+    radial-gradient(ellipse 40% 40% at 55% 5%, #301060 0%, transparent 50%),
+    linear-gradient(160deg, #080820 0%, #0d0d30 40%, #150830 70%, #060618 100%);
+  --nx-bg:          #080820;
+  --nx-glass-opacity: 0.09;
+  --nx-sidebar:     rgba(255,255,255,0.08);
+  --nx-topbar:      rgba(255,255,255,0.06);
+  --nx-border:      rgba(255,255,255,0.14);
+  --nx-text:        #c8d8ff;
+  --nx-text-muted:  #6070a0;
+  --nx-accent:      #7090ff;
+  --nx-accent2:     #a070ff;
+  --nx-bubble-ai:   rgba(255,255,255,0.09);
+  --nx-bubble-user: rgba(80,110,255,0.90);
+  --nx-badge-bg:    rgba(255,255,255,0.08);
+}
+
+/* Warm — golden hour, amber + coral + cream */
+[data-theme="glass-warm"] {
+  --nx-bg-gradient:
+    radial-gradient(ellipse 60% 50% at 20% 20%, #ffd4a0 0%, transparent 55%),
+    radial-gradient(ellipse 50% 55% at 80% 70%, #ffb8c8 0%, transparent 55%),
+    radial-gradient(ellipse 40% 40% at 55% 5%, #ffe0b0 0%, transparent 50%),
+    linear-gradient(160deg, #fff0d8 0%, #ffe8d0 40%, #ffd8e8 70%, #fff0c8 100%);
+  --nx-bg:          #fff0d8;
+  --nx-sidebar:     rgba(255,255,255,0.44);
+  --nx-topbar:      rgba(255,255,255,0.34);
+  --nx-border:      rgba(255,255,255,0.70);
+  --nx-text:        #3c1c08;
+  --nx-text-muted:  #9a5020;
+  --nx-accent:      #e06010;
+  --nx-accent2:     #dc2626;
+  --nx-bubble-ai:   rgba(255,255,255,0.56);
+  --nx-bubble-user: rgba(220,90,16,0.85);
+  --nx-badge-bg:    rgba(255,255,255,0.50);
+}
+
+/* Emerald — minty seafoam + teal + sage */
+[data-theme="glass-emerald"] {
+  --nx-bg-gradient:
+    radial-gradient(ellipse 60% 50% at 20% 20%, #a8f0c8 0%, transparent 55%),
+    radial-gradient(ellipse 50% 55% at 80% 70%, #b8e8d8 0%, transparent 55%),
+    radial-gradient(ellipse 40% 40% at 55% 5%, #c8f5e0 0%, transparent 50%),
+    linear-gradient(160deg, #d8fff0 0%, #c8f0e4 40%, #d4fce8 70%, #c0f0dc 100%);
+  --nx-bg:          #d8fff0;
+  --nx-sidebar:     rgba(255,255,255,0.44);
+  --nx-topbar:      rgba(255,255,255,0.32);
+  --nx-border:      rgba(255,255,255,0.68);
+  --nx-text:        #082818;
+  --nx-text-muted:  #307050;
+  --nx-accent:      #059660;
+  --nx-accent2:     #0891b2;
+  --nx-bubble-ai:   rgba(255,255,255,0.54);
+  --nx-bubble-user: rgba(5,150,96,0.85);
+  --nx-badge-bg:    rgba(255,255,255,0.48);
+}
+
+/*
+  GLASS COMPONENT OVERRIDES
+  Apply these classes on glass variants (any [data-theme^="glass"]) in addition
+  to the standard .nx-* classes. They override opacity + blur behavior.
+*/
+[data-theme^="glass"] .nx-sidebar,
+[data-theme^="glass"] .nx-topbar {
+  backdrop-filter: blur(var(--nx-glass-blur)) saturate(var(--nx-glass-saturate));
+  -webkit-backdrop-filter: blur(var(--nx-glass-blur)) saturate(var(--nx-glass-saturate));
+}
+
+[data-theme^="glass"] .nx-bubble-ai {
+  backdrop-filter: blur(20px) saturate(1.5);
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  border: 0.5px solid var(--nx-border);
+  border-left: none;
+}
+
+[data-theme^="glass"] .nx-input {
+  background: rgba(255,255,255,0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 0.5px solid var(--nx-border);
+}
+
+/* ===================== PERSONALITY SKINS ===================== */
+
+[data-theme="lagoon-pop"] {
+  --nx-bg:
+    radial-gradient(circle at 18% 12%, rgba(255, 214, 102, 0.30), transparent 28%),
+    radial-gradient(circle at 85% 18%, rgba(255, 92, 129, 0.24), transparent 26%),
+    linear-gradient(140deg, #022c34 0%, #07495a 48%, #0b6f72 100%);
+  --nx-sidebar:     rgba(3, 45, 54, 0.86);
+  --nx-topbar:      rgba(3, 45, 54, 0.74);
+  --nx-border:      rgba(120, 244, 224, 0.28);
+  --nx-text:        #ecfffb;
+  --nx-text-muted:  #85d9cf;
+  --nx-accent:      #ffcf56;
+  --nx-accent2:     #ff5c81;
+  --nx-bubble-ai:   rgba(6, 74, 87, 0.92);
+  --nx-bubble-user: linear-gradient(135deg, #ffcf56, #ff8f70);
+  --nx-bubble-radius-ai:   20px 20px 20px 6px;
+  --nx-bubble-radius-user: 20px 20px 6px 20px;
+  --nx-bubble-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+  --nx-bubble-border-ai: 1px solid rgba(133, 217, 207, 0.24);
+  --nx-bubble-border-user: 1px solid rgba(255, 255, 255, 0.32);
+}
+
+[data-theme="mango-breeze"] {
+  --nx-bg:
+    radial-gradient(circle at 12% 18%, rgba(255, 198, 87, 0.42), transparent 30%),
+    radial-gradient(circle at 82% 24%, rgba(18, 184, 134, 0.28), transparent 28%),
+    linear-gradient(160deg, #fff3ce 0%, #ffe0a8 46%, #b9f3df 100%);
+  --nx-sidebar:     rgba(255, 250, 235, 0.76);
+  --nx-topbar:      rgba(255, 250, 235, 0.68);
+  --nx-border:      rgba(150, 93, 29, 0.18);
+  --nx-text:        #3a2609;
+  --nx-text-muted:  #8a6532;
+  --nx-accent:      #ef8f22;
+  --nx-accent2:     #0f9f7a;
+  --nx-bubble-ai:   rgba(255, 255, 246, 0.78);
+  --nx-bubble-user: linear-gradient(135deg, #ffb84d, #ff7a59);
+  --nx-bubble-radius-ai:   18px 18px 18px 5px;
+  --nx-bubble-radius-user: 18px 18px 5px 18px;
+  --nx-bubble-shadow: 0 12px 24px rgba(162, 95, 20, 0.15);
+  --nx-bubble-border-ai: 1px solid rgba(150, 93, 29, 0.15);
+  --nx-bubble-border-user: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+[data-theme="hibiscus-night"] {
+  --nx-bg:
+    radial-gradient(circle at 20% 20%, rgba(255, 77, 141, 0.28), transparent 28%),
+    radial-gradient(circle at 80% 10%, rgba(89, 213, 255, 0.18), transparent 25%),
+    linear-gradient(145deg, #150316 0%, #2a0828 48%, #051f2c 100%);
+  --nx-sidebar:     rgba(25, 5, 29, 0.88);
+  --nx-topbar:      rgba(25, 5, 29, 0.76);
+  --nx-border:      rgba(255, 122, 178, 0.22);
+  --nx-text:        #fff0f7;
+  --nx-text-muted:  #c987a8;
+  --nx-accent:      #ff4d8d;
+  --nx-accent2:     #59d5ff;
+  --nx-bubble-ai:   rgba(50, 11, 52, 0.92);
+  --nx-bubble-user: linear-gradient(135deg, #ff4d8d, #7847ff);
+  --nx-bubble-radius-ai:   24px 12px 24px 8px;
+  --nx-bubble-radius-user: 12px 24px 8px 24px;
+  --nx-bubble-shadow: 0 14px 34px rgba(255, 77, 141, 0.16);
+  --nx-bubble-border-ai: 1px solid rgba(255, 122, 178, 0.20);
+  --nx-bubble-border-user: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+[data-theme="speech-bubble"] {
+  --nx-bg:          #f7f8fc;
+  --nx-sidebar:     #ffffff;
+  --nx-topbar:      #ffffff;
+  --nx-border:      #dfe3ee;
+  --nx-text:        #172033;
+  --nx-text-muted:  #6d778d;
+  --nx-accent:      #3b82f6;
+  --nx-accent2:     #10b981;
+  --nx-bubble-ai:   #ffffff;
+  --nx-bubble-user: #dbeafe;
+  --nx-bubble-radius-ai:   22px 22px 22px 4px;
+  --nx-bubble-radius-user: 22px 22px 4px 22px;
+  --nx-bubble-shadow: 0 8px 18px rgba(30, 41, 59, 0.08);
+  --nx-bubble-border-ai: 1px solid #e6eaf3;
+  --nx-bubble-border-user: 1px solid #bfdbfe;
+}
+
+[data-theme="soft-cloud"] {
+  --nx-bg:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.9), transparent 30%),
+    linear-gradient(145deg, #eaf6ff 0%, #f7edff 52%, #fff6df 100%);
+  --nx-sidebar:     rgba(255, 255, 255, 0.58);
+  --nx-topbar:      rgba(255, 255, 255, 0.48);
+  --nx-border:      rgba(123, 140, 166, 0.18);
+  --nx-text:        #253247;
+  --nx-text-muted:  #718099;
+  --nx-accent:      #8b5cf6;
+  --nx-accent2:     #38bdf8;
+  --nx-bubble-ai:   rgba(255, 255, 255, 0.72);
+  --nx-bubble-user: rgba(235, 222, 255, 0.88);
+  --nx-bubble-radius-ai:   28px;
+  --nx-bubble-radius-user: 28px;
+  --nx-bubble-shadow: 0 16px 30px rgba(94, 77, 128, 0.10);
+  --nx-bubble-border-ai: 1px solid rgba(255, 255, 255, 0.80);
+  --nx-bubble-border-user: 1px solid rgba(139, 92, 246, 0.18);
+}
+
+[data-theme="comic-pop"] {
+  --nx-bg:          #fffdf2;
+  --nx-sidebar:     #fff7cc;
+  --nx-topbar:      #fff7cc;
+  --nx-border:      #1f2937;
+  --nx-text:        #111827;
+  --nx-text-muted:  #4b5563;
+  --nx-accent:      #ef4444;
+  --nx-accent2:     #2563eb;
+  --nx-bubble-ai:   #ffffff;
+  --nx-bubble-user: #fde047;
+  --nx-bubble-radius-ai:   4px 18px 18px 18px;
+  --nx-bubble-radius-user: 18px 4px 18px 18px;
+  --nx-bubble-shadow: 4px 4px 0 #111827;
+  --nx-bubble-border-ai: 2px solid #111827;
+  --nx-bubble-border-user: 2px solid #111827;
+  --nx-font: 'Arial Rounded MT Bold', system-ui, sans-serif;
+}
+
+[data-theme="pixel-arcade"] {
+  --nx-bg:
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
+    radial-gradient(circle at 18% 18%, rgba(255, 0, 204, 0.20), transparent 24%),
+    radial-gradient(circle at 82% 22%, rgba(0, 245, 255, 0.16), transparent 26%),
+    #060611;
+  --nx-bg-size: 18px 18px;
+  --nx-sidebar:     #0d0d1f;
+  --nx-topbar:      #0d0d1f;
+  --nx-border:      #31316a;
+  --nx-text:        #f8f7ff;
+  --nx-text-muted:  #8b8bc8;
+  --nx-accent:      #00f5ff;
+  --nx-accent2:     #ff00cc;
+  --nx-bubble-ai:   #12122a;
+  --nx-bubble-user: #25124a;
+  --nx-bubble-radius-ai:   2px 14px 14px 14px;
+  --nx-bubble-radius-user: 14px 2px 14px 14px;
+  --nx-bubble-shadow: 4px 4px 0 #ff00cc;
+  --nx-bubble-border-ai: 2px solid #00f5ff;
+  --nx-bubble-border-user: 2px solid #ff00cc;
+  --nx-font: 'Courier New', Courier, monospace;
+}
+
+[data-theme="console-green"] {
+  --nx-bg:
+    repeating-linear-gradient(0deg, rgba(57, 255, 20, 0.045) 0 1px, transparent 1px 4px),
+    #020602;
+  --nx-sidebar:     #061006;
+  --nx-topbar:      #061006;
+  --nx-border:      #124f18;
+  --nx-text:        #d8ffd2;
+  --nx-text-muted:  #55a95e;
+  --nx-accent:      #39ff14;
+  --nx-accent2:     #faff00;
+  --nx-bubble-ai:   #071707;
+  --nx-bubble-user: #0b260b;
+  --nx-bubble-radius-ai:   6px;
+  --nx-bubble-radius-user: 6px;
+  --nx-bubble-shadow: 0 0 18px rgba(57, 255, 20, 0.13);
+  --nx-bubble-border-ai: 1px solid rgba(57, 255, 20, 0.35);
+  --nx-bubble-border-user: 1px solid rgba(250, 255, 0, 0.35);
+  --nx-font: 'Courier New', Courier, monospace;
+}
+
+[data-theme="rainbow-cloud"] {
+  --nx-bg:
+    radial-gradient(circle at 14% 16%, rgba(255,255,255,0.95), transparent 18%),
+    radial-gradient(circle at 32% 12%, rgba(255,255,255,0.75), transparent 16%),
+    radial-gradient(circle at 76% 22%, rgba(255,255,255,0.72), transparent 18%),
+    linear-gradient(135deg, #b9e8ff 0%, #ffd8ef 34%, #fff2b8 68%, #d6ffd9 100%);
+  --nx-sidebar:     rgba(255, 255, 255, 0.62);
+  --nx-topbar:      rgba(255, 255, 255, 0.54);
+  --nx-border:      rgba(128, 116, 180, 0.20);
+  --nx-text:        #3b3154;
+  --nx-text-muted:  #7c7095;
+  --nx-accent:      #ff6fb1;
+  --nx-accent2:     #6c8cff;
+  --nx-bubble-ai:   rgba(255, 255, 255, 0.82);
+  --nx-bubble-user: linear-gradient(135deg, #ffd8ef, #fff2b8, #d6ffd9);
+  --nx-bubble-radius-ai:   30px 30px 30px 10px;
+  --nx-bubble-radius-user: 30px 30px 10px 30px;
+  --nx-bubble-shadow: 0 14px 26px rgba(111, 97, 154, 0.13);
+  --nx-bubble-border-ai: 1px solid rgba(255,255,255,0.85);
+  --nx-bubble-border-user: 1px solid rgba(255,255,255,0.85);
+  --nx-font: 'Arial Rounded MT Bold', system-ui, sans-serif;
+}
+
+/* ===================== THEME SWITCHER UTILITY (JS) =====================
+  
+  Paste this into your ThemeSwitcher component:
+
+  const THEMES = [
+    'midnight','obsidian','aurora','crimson','navy','forest','amber','rose','slate','cyber',
+    'ivory','snow','cream','arctic','blush','mint','lavender','sunrise','paper','zinc',
+    'neon','candy','ocean','lava','galaxy','matrix',
+    'retro','nordic','sakura','sand','mono',
+    'glass-day','glass-dusk','glass-night','glass-warm','glass-emerald'
+  ];
+
+  function applyTheme(id: string) {
+    document.documentElement.setAttribute('data-theme', id);
+    localStorage.setItem('nexus_theme', id);
+  }
+
+  function loadSavedTheme() {
+    const saved = localStorage.getItem('nexus_theme') ?? 'midnight';
+    applyTheme(saved);
+  }
+
+  Call loadSavedTheme() in your root layout useEffect.
+
+  ================================================================= */

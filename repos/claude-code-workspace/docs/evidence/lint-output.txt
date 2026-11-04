@@ -1,0 +1,48 @@
+
+> market-intelligence@0.1.0 lint
+> npm run lint --workspaces --if-present
+
+
+> web@0.1.0 lint
+> eslint app --max-warnings 0
+
+
+> worker@0.1.0 lint
+> eslint src --max-warnings 0
+
+
+> @mi/agents@0.1.0 lint
+> eslint src --max-warnings 0
+
+
+> @mi/db@0.1.0 lint
+> eslint src --max-warnings 0
+
+
+> @mi/evidence@0.1.0 lint
+> eslint src --max-warnings 0
+
+
+> @mi/models@0.1.0 lint
+> eslint src --max-warnings 0
+
+
+> @mi/prompts@0.1.0 lint
+> eslint src --max-warnings 0
+
+
+> @mi/schemas@0.1.0 lint
+> eslint src --max-warnings 0
+
+
+> @mi/scoring@0.1.0 lint
+> eslint src --max-warnings 0
+
+
+> @mi/testing@0.1.0 lint
+> eslint src --max-warnings 0
+
+
+> @mi/tools@0.1.0 lint
+> eslint src --max-warnings 0
+

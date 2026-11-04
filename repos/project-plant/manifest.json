@@ -1,0 +1,55 @@
+{
+  "manifest_version": 3,
+  "name": "Plant — Managed UI Layer",
+  "version": "0.1.0",
+  "description": "Self-healing UI skin engine. Applies managed themes to web surfaces using structural element detection only.",
+
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+
+  "host_permissions": [
+    "https://YOUR-ENDPOINT.com/*"
+  ],
+
+  "background": {
+    "service_worker": "background/background.js",
+    "type": "module"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/content.js"],
+      "run_at": "document_start",
+      "world": "ISOLATED"
+    }
+  ],
+
+  "action": {
+    "default_popup": "assets/popup.html",
+    "default_icon": {
+      "16":  "assets/icon16.png",
+      "48":  "assets/icon48.png",
+      "128": "assets/icon128.png"
+    }
+  },
+
+  "icons": {
+    "16":  "assets/icon16.png",
+    "48":  "assets/icon48.png",
+    "128": "assets/icon128.png"
+  },
+
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/*.png", "assets/*.css"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'none';"
+  }
+}

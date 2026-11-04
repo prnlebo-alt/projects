@@ -1,0 +1,15 @@
+{
+  "files": [],
+  "references": [
+    { "path": "packages/schemas" },
+    { "path": "packages/db" },
+    { "path": "packages/tools" },
+    { "path": "packages/models" },
+    { "path": "packages/evidence" },
+    { "path": "packages/agents" },
+    { "path": "packages/prompts" },
+    { "path": "packages/scoring" },
+    { "path": "packages/testing" },
+    { "path": "apps/worker" }
+  ]
+}

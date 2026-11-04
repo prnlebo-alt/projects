@@ -1,0 +1,3 @@
+{"ts":"2026-08-26T19:04:16.246Z","level":"info","message":"materiality_recall","value":1,"pass":true,"threshold":">= 0.95","detail":"8/8 labeled-material predicates correctly flagged material"}
+{"ts":"2026-08-26T19:04:16.247Z","level":"info","message":"vendor_self_interest_labeling_accuracy","value":1,"pass":true,"threshold":">= 0.95","detail":"7/7 source types correctly labeled vendor/self-interested vs not"}
+{"ts":"2026-08-26T19:04:16.247Z","level":"info","message":"source_family_independence_accuracy","value":1,"pass":true,"threshold":">= 0.90","detail":"11/11 labeled pairs correctly classified as syndicated vs independent"}

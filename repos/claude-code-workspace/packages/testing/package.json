@@ -1,0 +1,26 @@
+{
+  "name": "@mi/testing",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "build": "tsc -b --pretty",
+    "typecheck": "tsc -b --pretty",
+    "lint": "eslint src --max-warnings 0"
+  },
+  "dependencies": {
+    "@mi/agents": "*",
+    "@mi/db": "*",
+    "@mi/evidence": "*",
+    "@mi/models": "*",
+    "@mi/prompts": "*",
+    "@mi/schemas": "*",
+    "@mi/tools": "*",
+    "drizzle-orm": "^0.36.4"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2"
+  }
+}

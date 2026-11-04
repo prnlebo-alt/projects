@@ -1,0 +1,18 @@
+node_modules
+.next
+.env
+.env.*
+!.env.example
+.data/
+backups/
+coverage
+npm-debug.log*
+tsconfig.tsbuildinfo
+.claude/settings.local.json
+
+# Rendered baseline charts. The contact sheet is regenerated with `npm run golden`, and committing
+# 30 PNGs on every review round would bury real diffs under binary churn.
+reports/baseline/
+
+# graft's local graph cache — regenerable, not committed (run `graft build`).
+/graft/

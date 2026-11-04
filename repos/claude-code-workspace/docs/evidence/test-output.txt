@@ -1,0 +1,25 @@
+
+ RUN  v2.1.9 /home/user/claude-code-workspace
+
+ ✓ packages/testing/src/benchmark/robustness.integration.test.ts (10 tests) 764ms
+ ✓ packages/testing/src/benchmark/pipeline.integration.test.ts (9 tests) 412ms
+ ✓ packages/evidence/src/sourceFamily.test.ts (10 tests) 9ms
+ ✓ packages/tools/src/accessPolicy/gate.test.ts (14 tests) 48ms
+ ✓ packages/tools/src/accessPolicy/gatedFetchAdapter.test.ts (8 tests) 65ms
+ ✓ packages/evidence/src/evidenceConfidence.test.ts (18 tests) 6ms
+ ✓ packages/evidence/src/materiality.test.ts (5 tests) 8ms
+ ✓ packages/db/src/db.integration.test.ts (4 tests) 45ms
+ ✓ packages/schemas/src/ids.test.ts (8 tests) 29ms
+ ✓ packages/models/src/fakeModelAdapter.test.ts (4 tests) 7ms
+ ✓ packages/evidence/src/verification.test.ts (5 tests) 5ms
+ ✓ packages/evidence/src/grounding.test.ts (6 tests) 10ms
+ ✓ packages/testing/src/benchmark/metrics.test.ts (3 tests) 40ms
+ ✓ packages/tools/src/accessPolicy/gatedBrowserAdapter.test.ts (2 tests) 39ms
+ ✓ packages/tools/src/fetch/fixtureFetchAdapter.test.ts (2 tests) 4ms
+ ✓ packages/evidence/src/canonicalizeUrl.test.ts (3 tests) 4ms
+
+ Test Files  16 passed (16)
+      Tests  111 passed (111)
+   Start at  19:03:46
+   Duration  9.26s (transform 468ms, setup 0ms, collect 3.97s, tests 1.50s, environment 3ms, prepare 904ms)
+

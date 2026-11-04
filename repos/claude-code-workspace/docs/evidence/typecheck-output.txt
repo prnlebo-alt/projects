@@ -1,0 +1,48 @@
+
+> market-intelligence@0.1.0 typecheck
+> npm run typecheck --workspaces --if-present
+
+
+> web@0.1.0 typecheck
+> tsc --noEmit --pretty
+
+
+> worker@0.1.0 typecheck
+> tsc -b --pretty
+
+
+> @mi/agents@0.1.0 typecheck
+> tsc -b --pretty
+
+
+> @mi/db@0.1.0 typecheck
+> tsc -b --pretty
+
+
+> @mi/evidence@0.1.0 typecheck
+> tsc -b --pretty
+
+
+> @mi/models@0.1.0 typecheck
+> tsc -b --pretty
+
+
+> @mi/prompts@0.1.0 typecheck
+> tsc -b --pretty
+
+
+> @mi/schemas@0.1.0 typecheck
+> tsc -b --pretty
+
+
+> @mi/scoring@0.1.0 typecheck
+> tsc -b --pretty
+
+
+> @mi/testing@0.1.0 typecheck
+> tsc -b --pretty
+
+
+> @mi/tools@0.1.0 typecheck
+> tsc -b --pretty
+

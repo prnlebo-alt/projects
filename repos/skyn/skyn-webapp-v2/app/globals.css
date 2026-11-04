@@ -1,0 +1,25 @@
+@import '../styles/nexus-themes.css';
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  background: var(--nx-bg);
+  color: var(--nx-text);
+  font-family: var(--nx-font);
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--nx-border); border-radius: 2px; }
+
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+*:focus-visible { outline: 2px solid var(--nx-accent); outline-offset: 2px; }
+
+a { color: var(--nx-accent); text-decoration: none; }
+a:hover { opacity: 0.8; }
+
+code, pre, kbd { font-family: 'Courier New', Courier, monospace; font-size: 0.9em; }
+input, textarea, button, select { font-family: var(--nx-font); }

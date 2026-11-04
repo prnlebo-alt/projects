@@ -1,0 +1,248 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#cdd6dc"/>
+      <stop offset="0.45" stop-color="#dde3d8"/>
+      <stop offset="1" stop-color="#e8e8d0"/>
+    </linearGradient>
+    <linearGradient id="farHill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7a9268"/>
+      <stop offset="1" stop-color="#5d7a4a"/>
+    </linearGradient>
+    <linearGradient id="midHill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5a7d3a"/>
+      <stop offset="1" stop-color="#4a6a28"/>
+    </linearGradient>
+    <linearGradient id="grass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5a7d2e"/>
+      <stop offset="0.5" stop-color="#4a6a22"/>
+      <stop offset="1" stop-color="#3a5418"/>
+    </linearGradient>
+    <radialGradient id="pond" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#8aa49c"/>
+      <stop offset="1" stop-color="#5a786c"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="1920" height="540" fill="url(#sky)"/>
+
+  <!-- Clouds -->
+  <g fill="#f4eedb">
+    <ellipse cx="280" cy="160" rx="160" ry="34" opacity="0.55"/>
+    <ellipse cx="360" cy="140" rx="100" ry="22" opacity="0.45"/>
+    <ellipse cx="780" cy="200" rx="200" ry="40" opacity="0.5"/>
+    <ellipse cx="900" cy="170" rx="140" ry="26" opacity="0.45"/>
+    <ellipse cx="1380" cy="180" rx="180" ry="38" opacity="0.5"/>
+    <ellipse cx="1620" cy="240" rx="160" ry="30" opacity="0.4"/>
+    <ellipse cx="1100" cy="280" rx="160" ry="22" opacity="0.35"/>
+  </g>
+
+  <!-- Distant hills -->
+  <path d="M 0 500 Q 200 460, 400 480 T 760 470 T 1140 485 T 1500 465 T 1920 475 L 1920 580 L 0 580 Z" fill="url(#farHill)"/>
+
+  <!-- Distant tree clusters -->
+  <g fill="#3a5230" opacity="0.7">
+    <ellipse cx="180" cy="488" rx="55" ry="20"/>
+    <ellipse cx="280" cy="492" rx="40" ry="15"/>
+    <ellipse cx="620" cy="478" rx="65" ry="22"/>
+    <ellipse cx="1100" cy="495" rx="85" ry="26"/>
+    <ellipse cx="1320" cy="478" rx="50" ry="18"/>
+    <ellipse cx="1700" cy="490" rx="70" ry="24"/>
+  </g>
+
+  <!-- Distant farmhouse -->
+  <g>
+    <rect x="1500" y="470" width="48" height="32" fill="#dac8a8"/>
+    <polygon points="1494,470 1554,470 1524,452" fill="#8a4a28"/>
+    <rect x="1518" y="486" width="8" height="16" fill="#3a2818"/>
+  </g>
+
+  <!-- Stone walls dividing distant fields -->
+  <g stroke="#c8c4b0" stroke-width="2" fill="none" opacity="0.55">
+    <path d="M 0 560 L 480 540 L 760 550 L 1100 535 L 1480 540 L 1920 530"/>
+    <path d="M 320 580 L 320 540"/>
+    <path d="M 760 590 L 760 555"/>
+    <path d="M 1280 595 L 1280 545"/>
+  </g>
+
+  <!-- Mid-ground meadow band -->
+  <path d="M 0 580 Q 480 540, 960 565 T 1920 555 L 1920 740 L 0 740 Z" fill="url(#midHill)"/>
+
+  <!-- Hedgerow / tree divisions -->
+  <g fill="#2a3e18" opacity="0.5">
+    <path d="M 200 600 L 220 720 L 215 720 L 195 600 Z"/>
+    <path d="M 580 605 L 600 720 L 595 720 L 575 605 Z"/>
+    <path d="M 1200 600 L 1220 720 L 1215 720 L 1195 600 Z"/>
+    <path d="M 1700 605 L 1720 720 L 1715 720 L 1695 605 Z"/>
+  </g>
+
+  <!-- Sheep on mid-hills -->
+  <g fill="#f0ead4" opacity="0.85">
+    <ellipse cx="120" cy="615" rx="6" ry="4"/>
+    <ellipse cx="155" cy="620" rx="5" ry="3.5"/>
+    <ellipse cx="450" cy="625" rx="6" ry="4"/>
+    <ellipse cx="490" cy="618" rx="5" ry="3.5"/>
+    <ellipse cx="1320" cy="630" rx="6" ry="4"/>
+    <ellipse cx="1360" cy="635" rx="5" ry="3.5"/>
+    <ellipse cx="1820" cy="640" rx="6" ry="4"/>
+  </g>
+
+  <!-- Pond -->
+  <ellipse cx="1480" cy="800" rx="220" ry="55" fill="url(#pond)"/>
+  <ellipse cx="1480" cy="790" rx="180" ry="32" fill="#8aa498" opacity="0.4"/>
+
+  <!-- Foreground meadow -->
+  <path d="M 0 740 Q 600 720, 1200 730 T 1920 720 L 1920 1080 L 0 1080 Z" fill="url(#grass)"/>
+
+  <!-- Wooden fence on left -->
+  <g stroke="#6a5a3c" stroke-width="3.5" fill="none">
+    <line x1="20" y1="900" x2="280" y2="800"/>
+    <line x1="20" y1="940" x2="280" y2="840"/>
+    <line x1="30" y1="780" x2="30" y2="950"/>
+    <line x1="100" y1="800" x2="100" y2="940"/>
+    <line x1="170" y1="820" x2="170" y2="935"/>
+    <line x1="240" y1="830" x2="240" y2="925"/>
+  </g>
+
+  <!-- Wildflowers — gold/yellow -->
+  <g fill="#d4b840">
+    <circle cx="100" cy="980" r="6"/>
+    <circle cx="180" cy="1020" r="5"/>
+    <circle cx="320" cy="970" r="6"/>
+    <circle cx="420" cy="1030" r="5"/>
+    <circle cx="550" cy="990" r="6"/>
+    <circle cx="680" cy="1040" r="5"/>
+    <circle cx="800" cy="980" r="6"/>
+    <circle cx="280" cy="900" r="4"/>
+    <circle cx="640" cy="920" r="4"/>
+    <circle cx="1080" cy="990" r="6"/>
+    <circle cx="1220" cy="1030" r="5"/>
+    <circle cx="1100" cy="900" r="4"/>
+    <circle cx="1320" cy="960" r="5"/>
+    <circle cx="1820" cy="985" r="5"/>
+    <circle cx="1880" cy="1030" r="6"/>
+    <circle cx="940" cy="1050" r="5"/>
+    <circle cx="60" cy="1050" r="5"/>
+  </g>
+
+  <!-- Buttercups — lighter yellow -->
+  <g fill="#e8d058">
+    <circle cx="140" cy="1000" r="4"/>
+    <circle cx="380" cy="990" r="4"/>
+    <circle cx="500" cy="950" r="4"/>
+    <circle cx="720" cy="1010" r="4"/>
+    <circle cx="1180" cy="1010" r="4"/>
+    <circle cx="1280" cy="990" r="4"/>
+    <circle cx="1750" cy="1020" r="4"/>
+    <circle cx="220" cy="950" r="3"/>
+    <circle cx="600" cy="1060" r="3"/>
+  </g>
+
+  <!-- White wildflowers (daisies) -->
+  <g fill="#f0ead4">
+    <circle cx="200" cy="985" r="3"/>
+    <circle cx="360" cy="1015" r="3"/>
+    <circle cx="600" cy="960" r="3"/>
+    <circle cx="740" cy="975" r="3"/>
+    <circle cx="1140" cy="970" r="3"/>
+    <circle cx="1240" cy="1020" r="3"/>
+    <circle cx="1340" cy="1010" r="3"/>
+    <circle cx="1700" cy="990" r="3"/>
+    <circle cx="1860" cy="1010" r="3"/>
+  </g>
+
+  <!-- Pink/lavender wildflowers -->
+  <g fill="#cc8eaa">
+    <circle cx="260" cy="1040" r="3"/>
+    <circle cx="780" cy="1030" r="3"/>
+    <circle cx="1380" cy="1040" r="3"/>
+    <circle cx="160" cy="940" r="2.5"/>
+    <circle cx="900" cy="970" r="2.5"/>
+  </g>
+
+  <!-- HORSE 1: Brown/chestnut, head grazing -->
+  <g transform="translate(620, 820)">
+    <ellipse cx="0" cy="0" rx="78" ry="40" fill="#6e3a1f"/>
+    <ellipse cx="0" cy="15" rx="70" ry="22" fill="#5a2d18"/>
+    <ellipse cx="50" cy="-5" rx="32" ry="35" fill="#6e3a1f"/>
+    <ellipse cx="-50" cy="-2" rx="30" ry="32" fill="#6e3a1f"/>
+    <path d="M -70 -15 Q -110 25, -125 70 Q -120 78, -105 75 L -85 35 Z" fill="#6e3a1f"/>
+    <ellipse cx="-118" cy="75" rx="18" ry="14" fill="#5a2d18"/>
+    <path d="M -75 -25 Q -55 -38, -30 -32 Q -25 -20, -45 -8 Z" fill="#2a1810"/>
+    <rect x="-45" y="30" width="9" height="55" fill="#5a2d18"/>
+    <rect x="-25" y="30" width="9" height="55" fill="#5a2d18"/>
+    <rect x="32" y="30" width="9" height="55" fill="#5a2d18"/>
+    <rect x="52" y="30" width="9" height="55" fill="#5a2d18"/>
+    <path d="M 78 -5 Q 100 15, 95 50 Q 88 55, 80 35 Z" fill="#2a1810"/>
+  </g>
+
+  <!-- HORSE 2: Dapple gray, head up alert -->
+  <g transform="translate(880, 800)">
+    <ellipse cx="0" cy="0" rx="72" ry="38" fill="#a8a89e"/>
+    <circle cx="-30" cy="-5" r="6" fill="#7a7a72" opacity="0.55"/>
+    <circle cx="-10" cy="8" r="5" fill="#7a7a72" opacity="0.5"/>
+    <circle cx="20" cy="-8" r="7" fill="#7a7a72" opacity="0.55"/>
+    <circle cx="40" cy="10" r="5" fill="#7a7a72" opacity="0.5"/>
+    <circle cx="55" cy="-12" r="6" fill="#7a7a72" opacity="0.55"/>
+    <ellipse cx="48" cy="-5" rx="30" ry="32" fill="#a8a89e"/>
+    <ellipse cx="-48" cy="-2" rx="28" ry="30" fill="#a8a89e"/>
+    <path d="M -65 -22 Q -80 -55, -75 -85 L -55 -88 L -50 -25 Z" fill="#a8a89e"/>
+    <ellipse cx="-68" cy="-92" rx="14" ry="22" fill="#a8a89e"/>
+    <path d="M -78 -110 L -76 -100 L -72 -105 Z" fill="#7a7a72"/>
+    <path d="M -68 -113 L -65 -100 L -62 -108 Z" fill="#7a7a72"/>
+    <path d="M -62 -85 Q -52 -90, -45 -78 L -48 -25 L -55 -28 Z" fill="#e8e6dc"/>
+    <rect x="-42" y="30" width="9" height="55" fill="#8a8a82"/>
+    <rect x="-22" y="30" width="9" height="55" fill="#8a8a82"/>
+    <rect x="28" y="30" width="9" height="55" fill="#8a8a82"/>
+    <rect x="48" y="30" width="9" height="55" fill="#8a8a82"/>
+    <path d="M 70 -5 Q 92 20, 86 55 Q 80 60, 72 38 Z" fill="#e8e6dc"/>
+  </g>
+
+  <!-- HORSE 3: Pinto -->
+  <g transform="translate(1090, 830)">
+    <ellipse cx="0" cy="0" rx="58" ry="32" fill="#ecd5b8"/>
+    <ellipse cx="-20" cy="-8" rx="22" ry="18" fill="#6e3a1f"/>
+    <ellipse cx="25" cy="5" rx="25" ry="18" fill="#6e3a1f"/>
+    <ellipse cx="40" cy="-2" rx="22" ry="25" fill="#ecd5b8"/>
+    <ellipse cx="-40" cy="-2" rx="22" ry="25" fill="#6e3a1f"/>
+    <path d="M -52 -20 Q -68 -45, -62 -65 L -42 -65 L -38 -22 Z" fill="#ecd5b8"/>
+    <ellipse cx="-55" cy="-70" rx="13" ry="18" fill="#6e3a1f"/>
+    <path d="M -50 -60 Q -42 -65, -38 -55 L -40 -25 Z" fill="#2a1810"/>
+    <rect x="-36" y="25" width="8" height="48" fill="#6e3a1f"/>
+    <rect x="-18" y="25" width="8" height="48" fill="#ecd5b8"/>
+    <rect x="22" y="25" width="8" height="48" fill="#6e3a1f"/>
+    <rect x="40" y="25" width="8" height="48" fill="#ecd5b8"/>
+    <path d="M 58 -5 Q 78 15, 73 45 Q 67 50, 62 30 Z" fill="#2a1810"/>
+  </g>
+
+  <!-- HORSE 4: Palomino, grazing -->
+  <g transform="translate(1300, 830)">
+    <ellipse cx="0" cy="0" rx="78" ry="40" fill="#d4b078"/>
+    <ellipse cx="0" cy="15" rx="70" ry="20" fill="#b89360"/>
+    <ellipse cx="50" cy="-5" rx="32" ry="35" fill="#d4b078"/>
+    <ellipse cx="-52" cy="-2" rx="30" ry="32" fill="#d4b078"/>
+    <path d="M -72 -15 Q -110 30, -120 75 Q -115 82, -100 78 L -85 35 Z" fill="#d4b078"/>
+    <ellipse cx="-115" cy="78" rx="17" ry="13" fill="#b89360"/>
+    <path d="M -78 -25 Q -55 -42, -28 -32 Q -22 -18, -45 -5 Z" fill="#f0e0b4"/>
+    <rect x="-46" y="30" width="9" height="55" fill="#b89360"/>
+    <rect x="-26" y="30" width="9" height="55" fill="#b89360"/>
+    <rect x="32" y="30" width="9" height="55" fill="#b89360"/>
+    <rect x="52" y="30" width="9" height="55" fill="#b89360"/>
+    <path d="M 78 -5 Q 105 20, 100 55 Q 92 60, 82 38 Z" fill="#f0e0b4"/>
+  </g>
+
+  <!-- Foreground grass tufts -->
+  <g stroke="#3a5418" stroke-width="2" fill="none" opacity="0.65">
+    <path d="M 50 990 Q 53 980, 57 990"/>
+    <path d="M 200 1010 Q 203 998, 207 1010"/>
+    <path d="M 320 980 Q 323 970, 327 980"/>
+    <path d="M 480 1030 Q 483 1018, 487 1030"/>
+    <path d="M 720 985 Q 723 975, 727 985"/>
+    <path d="M 1050 1045 Q 1053 1033, 1057 1045"/>
+    <path d="M 1170 1000 Q 1173 988, 1177 1000"/>
+    <path d="M 1450 1020 Q 1453 1008, 1457 1020"/>
+    <path d="M 1620 990 Q 1623 978, 1627 990"/>
+    <path d="M 1820 1030 Q 1823 1018, 1827 1030"/>
+  </g>
+</svg>

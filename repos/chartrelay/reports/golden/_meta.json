@@ -1,0 +1,832 @@
+{
+ "grid-bar-editorial-light": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=18400%2C21300%2C24700%2C26900%2C31200%2C33900&labels=Apr%2CMay%2CJun%2CJul%2CAug%2CSep&title=Monthly+recurring+revenue+%28bar%29&style=editorial&theme=light&format=png",
+  "status": 200,
+  "bytes": 22093,
+  "content_type": null,
+  "alt": "Monthly recurring revenue (bar). Monthly recurring revenue (bar) peaks at 33,900 for Sep and bottoms at 18,400 for Apr. It increased 84.2% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/grid-bar-editorial-light.bin"
+ },
+ "grid-bar-editorial-dark": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=18400%2C21300%2C24700%2C26900%2C31200%2C33900&labels=Apr%2CMay%2CJun%2CJul%2CAug%2CSep&title=Monthly+recurring+revenue+%28bar%29&style=editorial&theme=dark&format=png",
+  "status": 200,
+  "bytes": 22161,
+  "content_type": null,
+  "alt": "Monthly recurring revenue (bar). Monthly recurring revenue (bar) peaks at 33,900 for Sep and bottoms at 18,400 for Apr. It increased 84.2% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/grid-bar-editorial-dark.bin"
+ },
+ "grid-bar-classic-light": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=18400%2C21300%2C24700%2C26900%2C31200%2C33900&labels=Apr%2CMay%2CJun%2CJul%2CAug%2CSep&title=Monthly+recurring+revenue+%28bar%29&style=classic&theme=light&format=png",
+  "status": 200,
+  "bytes": 26839,
+  "content_type": null,
+  "alt": "Monthly recurring revenue (bar). Monthly recurring revenue (bar) peaks at 33,900 for Sep and bottoms at 18,400 for Apr. It increased 84.2% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "classic",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/grid-bar-classic-light.bin"
+ },
+ "grid-bar-classic-dark": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=18400%2C21300%2C24700%2C26900%2C31200%2C33900&labels=Apr%2CMay%2CJun%2CJul%2CAug%2CSep&title=Monthly+recurring+revenue+%28bar%29&style=classic&theme=dark&format=png",
+  "status": 200,
+  "bytes": 31400,
+  "content_type": null,
+  "alt": "Monthly recurring revenue (bar). Monthly recurring revenue (bar) peaks at 33,900 for Sep and bottoms at 18,400 for Apr. It increased 84.2% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "classic",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/grid-bar-classic-dark.bin"
+ },
+ "grid-line-editorial-light": {
+  "url": "https://chartrelay.dev/chart?type=line&data=18400%2C21300%2C24700%2C26900%2C31200%2C33900&labels=Apr%2CMay%2CJun%2CJul%2CAug%2CSep&title=Monthly+recurring+revenue+%28line%29&style=editorial&theme=light&format=png",
+  "status": 200,
+  "bytes": 23948,
+  "content_type": null,
+  "alt": "Monthly recurring revenue (line). Monthly recurring revenue (line) peaks at 33,900 for Sep and bottoms at 18,400 for Apr. It increased 84.2% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/grid-line-editorial-light.bin"
+ },
+ "grid-line-editorial-dark": {
+  "url": "https://chartrelay.dev/chart?type=line&data=18400%2C21300%2C24700%2C26900%2C31200%2C33900&labels=Apr%2CMay%2CJun%2CJul%2CAug%2CSep&title=Monthly+recurring+revenue+%28line%29&style=editorial&theme=dark&format=png",
+  "status": 200,
+  "bytes": 23949,
+  "content_type": null,
+  "alt": "Monthly recurring revenue (line). Monthly recurring revenue (line) peaks at 33,900 for Sep and bottoms at 18,400 for Apr. It increased 84.2% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/grid-line-editorial-dark.bin"
+ },
+ "grid-line-classic-light": {
+  "url": "https://chartrelay.dev/chart?type=line&data=18400%2C21300%2C24700%2C26900%2C31200%2C33900&labels=Apr%2CMay%2CJun%2CJul%2CAug%2CSep&title=Monthly+recurring+revenue+%28line%29&style=classic&theme=light&format=png",
+  "status": 200,
+  "bytes": 20723,
+  "content_type": null,
+  "alt": "Monthly recurring revenue (line). Monthly recurring revenue (line) peaks at 33,900 for Sep and bottoms at 18,400 for Apr. It increased 84.2% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "classic",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/grid-line-classic-light.bin"
+ },
+ "grid-line-classic-dark": {
+  "url": "https://chartrelay.dev/chart?type=line&data=18400%2C21300%2C24700%2C26900%2C31200%2C33900&labels=Apr%2CMay%2CJun%2CJul%2CAug%2CSep&title=Monthly+recurring+revenue+%28line%29&style=classic&theme=dark&format=png",
+  "status": 200,
+  "bytes": 28759,
+  "content_type": null,
+  "alt": "Monthly recurring revenue (line). Monthly recurring revenue (line) peaks at 33,900 for Sep and bottoms at 18,400 for Apr. It increased 84.2% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "classic",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/grid-line-classic-dark.bin"
+ },
+ "grid-area-editorial-light": {
+  "url": "https://chartrelay.dev/chart?type=area&data=18400%2C21300%2C24700%2C26900%2C31200%2C33900&labels=Apr%2CMay%2CJun%2CJul%2CAug%2CSep&title=Monthly+recurring+revenue+%28area%29&style=editorial&theme=light&format=png",
+  "status": 200,
+  "bytes": 26180,
+  "content_type": null,
+  "alt": "Monthly recurring revenue (area). Monthly recurring revenue (area) peaks at 33,900 for Sep and bottoms at 18,400 for Apr. It increased 84.2% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "classic",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/grid-area-editorial-light.bin"
+ },
+ "grid-area-editorial-dark": {
+  "url": "https://chartrelay.dev/chart?type=area&data=18400%2C21300%2C24700%2C26900%2C31200%2C33900&labels=Apr%2CMay%2CJun%2CJul%2CAug%2CSep&title=Monthly+recurring+revenue+%28area%29&style=editorial&theme=dark&format=png",
+  "status": 200,
+  "bytes": 31354,
+  "content_type": null,
+  "alt": "Monthly recurring revenue (area). Monthly recurring revenue (area) peaks at 33,900 for Sep and bottoms at 18,400 for Apr. It increased 84.2% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "classic",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/grid-area-editorial-dark.bin"
+ },
+ "grid-area-classic-light": {
+  "url": "https://chartrelay.dev/chart?type=area&data=18400%2C21300%2C24700%2C26900%2C31200%2C33900&labels=Apr%2CMay%2CJun%2CJul%2CAug%2CSep&title=Monthly+recurring+revenue+%28area%29&style=classic&theme=light&format=png",
+  "status": 200,
+  "bytes": 26180,
+  "content_type": null,
+  "alt": "Monthly recurring revenue (area). Monthly recurring revenue (area) peaks at 33,900 for Sep and bottoms at 18,400 for Apr. It increased 84.2% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "classic",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/grid-area-classic-light.bin"
+ },
+ "grid-area-classic-dark": {
+  "url": "https://chartrelay.dev/chart?type=area&data=18400%2C21300%2C24700%2C26900%2C31200%2C33900&labels=Apr%2CMay%2CJun%2CJul%2CAug%2CSep&title=Monthly+recurring+revenue+%28area%29&style=classic&theme=dark&format=png",
+  "status": 200,
+  "bytes": 31354,
+  "content_type": null,
+  "alt": "Monthly recurring revenue (area). Monthly recurring revenue (area) peaks at 33,900 for Sep and bottoms at 18,400 for Apr. It increased 84.2% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "classic",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/grid-area-classic-dark.bin"
+ },
+ "grid-pie-editorial-light": {
+  "url": "https://chartrelay.dev/chart?type=pie&data=18400%2C21300%2C24700%2C26900%2C31200%2C33900&labels=Apr%2CMay%2CJun%2CJul%2CAug%2CSep&title=Monthly+recurring+revenue+%28pie%29&style=editorial&theme=light&format=png",
+  "status": 200,
+  "bytes": 25161,
+  "content_type": null,
+  "alt": "Monthly recurring revenue (pie). Pie chart of Monthly recurring revenue (pie) across 6 categories. Largest: Sep 22%, Aug 20%, Jul 17%. Smallest: Apr 12%.",
+  "findings": "tip:healthy",
+  "style_hdr": "classic",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/grid-pie-editorial-light.bin"
+ },
+ "grid-pie-editorial-dark": {
+  "url": "https://chartrelay.dev/chart?type=pie&data=18400%2C21300%2C24700%2C26900%2C31200%2C33900&labels=Apr%2CMay%2CJun%2CJul%2CAug%2CSep&title=Monthly+recurring+revenue+%28pie%29&style=editorial&theme=dark&format=png",
+  "status": 200,
+  "bytes": 32897,
+  "content_type": null,
+  "alt": "Monthly recurring revenue (pie). Pie chart of Monthly recurring revenue (pie) across 6 categories. Largest: Sep 22%, Aug 20%, Jul 17%. Smallest: Apr 12%.",
+  "findings": "tip:healthy",
+  "style_hdr": "classic",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/grid-pie-editorial-dark.bin"
+ },
+ "grid-pie-classic-light": {
+  "url": "https://chartrelay.dev/chart?type=pie&data=18400%2C21300%2C24700%2C26900%2C31200%2C33900&labels=Apr%2CMay%2CJun%2CJul%2CAug%2CSep&title=Monthly+recurring+revenue+%28pie%29&style=classic&theme=light&format=png",
+  "status": 200,
+  "bytes": 25161,
+  "content_type": null,
+  "alt": "Monthly recurring revenue (pie). Pie chart of Monthly recurring revenue (pie) across 6 categories. Largest: Sep 22%, Aug 20%, Jul 17%. Smallest: Apr 12%.",
+  "findings": "tip:healthy",
+  "style_hdr": "classic",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/grid-pie-classic-light.bin"
+ },
+ "grid-pie-classic-dark": {
+  "url": "https://chartrelay.dev/chart?type=pie&data=18400%2C21300%2C24700%2C26900%2C31200%2C33900&labels=Apr%2CMay%2CJun%2CJul%2CAug%2CSep&title=Monthly+recurring+revenue+%28pie%29&style=classic&theme=dark&format=png",
+  "status": 200,
+  "bytes": 32897,
+  "content_type": null,
+  "alt": "Monthly recurring revenue (pie). Pie chart of Monthly recurring revenue (pie) across 6 categories. Largest: Sep 22%, Aug 20%, Jul 17%. Smallest: Apr 12%.",
+  "findings": "tip:healthy",
+  "style_hdr": "classic",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/grid-pie-classic-dark.bin"
+ },
+ "grid-scatter-editorial-light": {
+  "url": "https://chartrelay.dev/chart?type=scatter&data=18400%2C21300%2C24700%2C26900%2C31200%2C33900&labels=Apr%2CMay%2CJun%2CJul%2CAug%2CSep&title=Monthly+recurring+revenue+%28scatter%29&style=editorial&theme=light&format=png",
+  "status": 200,
+  "bytes": 19403,
+  "content_type": null,
+  "alt": "Monthly recurring revenue (scatter). Monthly recurring revenue (scatter) peaks at 33,900 for Sep and bottoms at 18,400 for Apr.",
+  "findings": "tip:healthy",
+  "style_hdr": "classic",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/grid-scatter-editorial-light.bin"
+ },
+ "grid-scatter-editorial-dark": {
+  "url": "https://chartrelay.dev/chart?type=scatter&data=18400%2C21300%2C24700%2C26900%2C31200%2C33900&labels=Apr%2CMay%2CJun%2CJul%2CAug%2CSep&title=Monthly+recurring+revenue+%28scatter%29&style=editorial&theme=dark&format=png",
+  "status": 200,
+  "bytes": 27248,
+  "content_type": null,
+  "alt": "Monthly recurring revenue (scatter). Monthly recurring revenue (scatter) peaks at 33,900 for Sep and bottoms at 18,400 for Apr.",
+  "findings": "tip:healthy",
+  "style_hdr": "classic",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/grid-scatter-editorial-dark.bin"
+ },
+ "grid-scatter-classic-light": {
+  "url": "https://chartrelay.dev/chart?type=scatter&data=18400%2C21300%2C24700%2C26900%2C31200%2C33900&labels=Apr%2CMay%2CJun%2CJul%2CAug%2CSep&title=Monthly+recurring+revenue+%28scatter%29&style=classic&theme=light&format=png",
+  "status": 200,
+  "bytes": 19403,
+  "content_type": null,
+  "alt": "Monthly recurring revenue (scatter). Monthly recurring revenue (scatter) peaks at 33,900 for Sep and bottoms at 18,400 for Apr.",
+  "findings": "tip:healthy",
+  "style_hdr": "classic",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/grid-scatter-classic-light.bin"
+ },
+ "grid-scatter-classic-dark": {
+  "url": "https://chartrelay.dev/chart?type=scatter&data=18400%2C21300%2C24700%2C26900%2C31200%2C33900&labels=Apr%2CMay%2CJun%2CJul%2CAug%2CSep&title=Monthly+recurring+revenue+%28scatter%29&style=classic&theme=dark&format=png",
+  "status": 200,
+  "bytes": 27248,
+  "content_type": null,
+  "alt": "Monthly recurring revenue (scatter). Monthly recurring revenue (scatter) peaks at 33,900 for Sep and bottoms at 18,400 for Apr.",
+  "findings": "tip:healthy",
+  "style_hdr": "classic",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/grid-scatter-classic-dark.bin"
+ },
+ "edge-single-point": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=42&labels=Only&title=A+single+data+point&format=png",
+  "status": 200,
+  "bytes": 16856,
+  "content_type": null,
+  "alt": "A single data point. A single data point has a single data point: 42 for Only.",
+  "findings": "tip:single-point",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-single-point.bin"
+ },
+ "edge-single-point-line": {
+  "url": "https://chartrelay.dev/chart?type=line&data=42&labels=Only&title=One+point%2C+line+chart&format=png",
+  "status": 200,
+  "bytes": 17708,
+  "content_type": null,
+  "alt": "One point, line chart. One point, line chart has a single data point: 42 for Only.",
+  "findings": "tip:single-point",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-single-point-line.bin"
+ },
+ "edge-100-points-cap": {
+  "url": "https://chartrelay.dev/chart?type=line&data=1000%2C1139%2C1275%2C1404%2C1522%2C1627%2C1715%2C1784%2C1833%2C1860%2C1866%2C1849%2C1811%2C1753%2C1676%2C1583%2C1477%2C1361%2C1238%2C1113%2C988%2C867%2C753%2C651%2C563%2C492%2C439%2C407%2C397%2C409%2C443%2C499%2C574%2C667%2C776%2C898%2C1029%2C1166%2C1306%2C1445%2C1579%2C1705%2C1819%2C1919%2C2001%2C2065%2C2108%2C2128%2C2127%2C2104%2C2059%2C1995%2C1914%2C1817%2C1707%2C1589%2C1465%2C1339%2C1215%2C1096%2C985%2C887%2C804%2C738%2C691%2C666%2C663%2C681%2C722%2C783%2C864%2C962%2C1075%2C1200%2C1334%2C1472%2C1612%2C1750%2C1882%2C2004%2C2115%2C2210%2C2287%2C2344%2C2380%2C2394%2C2386%2C2356%2C2306%2C2236%2C2150%2C2049%2C1936%2C1816%2C1691%2C1565%2C1442%2C1325%2C1218%2C1124&labels=P1%2CP2%2CP3%2CP4%2CP5%2CP6%2CP7%2CP8%2CP9%2CP10%2CP11%2CP12%2CP13%2CP14%2CP15%2CP16%2CP17%2CP18%2CP19%2CP20%2CP21%2CP22%2CP23%2CP24%2CP25%2CP26%2CP27%2CP28%2CP29%2CP30%2CP31%2CP32%2CP33%2CP34%2CP35%2CP36%2CP37%2CP38%2CP39%2CP40%2CP41%2CP42%2CP43%2CP44%2CP45%2CP46%2CP47%2CP48%2CP49%2CP50%2CP51%2CP52%2CP53%2CP54%2CP55%2CP56%2CP57%2CP58%2CP59%2CP60%2CP61%2CP62%2CP63%2CP64%2CP65%2CP66%2CP67%2CP68%2CP69%2CP70%2CP71%2CP72%2CP73%2CP74%2CP75%2CP76%2CP77%2CP78%2CP79%2CP80%2CP81%2CP82%2CP83%2CP84%2CP85%2CP86%2CP87%2CP88%2CP89%2CP90%2CP91%2CP92%2CP93%2CP94%2CP95%2CP96%2CP97%2CP98%2CP99%2CP100&title=100+points+%28schema+cap%29&format=png",
+  "status": 200,
+  "bytes": 42404,
+  "content_type": null,
+  "alt": "100 points (schema cap). 100 points (schema cap) peaks at 2,394 for P86 and bottoms at 397 for P29. It increased 12.4% from first to last point.",
+  "findings": "warning:dense-chart",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-100-points-cap.bin"
+ },
+ "edge-101-points-over-cap": {
+  "url": "https://chartrelay.dev/chart?type=line&data=1000%2C1139%2C1275%2C1404%2C1522%2C1627%2C1715%2C1784%2C1833%2C1860%2C1866%2C1849%2C1811%2C1753%2C1676%2C1583%2C1477%2C1361%2C1238%2C1113%2C988%2C867%2C753%2C651%2C563%2C492%2C439%2C407%2C397%2C409%2C443%2C499%2C574%2C667%2C776%2C898%2C1029%2C1166%2C1306%2C1445%2C1579%2C1705%2C1819%2C1919%2C2001%2C2065%2C2108%2C2128%2C2127%2C2104%2C2059%2C1995%2C1914%2C1817%2C1707%2C1589%2C1465%2C1339%2C1215%2C1096%2C985%2C887%2C804%2C738%2C691%2C666%2C663%2C681%2C722%2C783%2C864%2C962%2C1075%2C1200%2C1334%2C1472%2C1612%2C1750%2C1882%2C2004%2C2115%2C2210%2C2287%2C2344%2C2380%2C2394%2C2386%2C2356%2C2306%2C2236%2C2150%2C2049%2C1936%2C1816%2C1691%2C1565%2C1442%2C1325%2C1218%2C1124%2C1750&labels=P1%2CP2%2CP3%2CP4%2CP5%2CP6%2CP7%2CP8%2CP9%2CP10%2CP11%2CP12%2CP13%2CP14%2CP15%2CP16%2CP17%2CP18%2CP19%2CP20%2CP21%2CP22%2CP23%2CP24%2CP25%2CP26%2CP27%2CP28%2CP29%2CP30%2CP31%2CP32%2CP33%2CP34%2CP35%2CP36%2CP37%2CP38%2CP39%2CP40%2CP41%2CP42%2CP43%2CP44%2CP45%2CP46%2CP47%2CP48%2CP49%2CP50%2CP51%2CP52%2CP53%2CP54%2CP55%2CP56%2CP57%2CP58%2CP59%2CP60%2CP61%2CP62%2CP63%2CP64%2CP65%2CP66%2CP67%2CP68%2CP69%2CP70%2CP71%2CP72%2CP73%2CP74%2CP75%2CP76%2CP77%2CP78%2CP79%2CP80%2CP81%2CP82%2CP83%2CP84%2CP85%2CP86%2CP87%2CP88%2CP89%2CP90%2CP91%2CP92%2CP93%2CP94%2CP95%2CP96%2CP97%2CP98%2CP99%2CP100%2CP101&title=101+points+%28one+over+cap%29&format=png",
+  "status": 400,
+  "bytes": 10173,
+  "content_type": null,
+  "alt": null,
+  "findings": null,
+  "style_hdr": null,
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-101-points-over-cap.bin"
+ },
+ "edge-100-points-bar": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=1000%2C1139%2C1275%2C1404%2C1522%2C1627%2C1715%2C1784%2C1833%2C1860%2C1866%2C1849%2C1811%2C1753%2C1676%2C1583%2C1477%2C1361%2C1238%2C1113%2C988%2C867%2C753%2C651%2C563%2C492%2C439%2C407%2C397%2C409%2C443%2C499%2C574%2C667%2C776%2C898%2C1029%2C1166%2C1306%2C1445%2C1579%2C1705%2C1819%2C1919%2C2001%2C2065%2C2108%2C2128%2C2127%2C2104%2C2059%2C1995%2C1914%2C1817%2C1707%2C1589%2C1465%2C1339%2C1215%2C1096%2C985%2C887%2C804%2C738%2C691%2C666%2C663%2C681%2C722%2C783%2C864%2C962%2C1075%2C1200%2C1334%2C1472%2C1612%2C1750%2C1882%2C2004%2C2115%2C2210%2C2287%2C2344%2C2380%2C2394%2C2386%2C2356%2C2306%2C2236%2C2150%2C2049%2C1936%2C1816%2C1691%2C1565%2C1442%2C1325%2C1218%2C1124&labels=P1%2CP2%2CP3%2CP4%2CP5%2CP6%2CP7%2CP8%2CP9%2CP10%2CP11%2CP12%2CP13%2CP14%2CP15%2CP16%2CP17%2CP18%2CP19%2CP20%2CP21%2CP22%2CP23%2CP24%2CP25%2CP26%2CP27%2CP28%2CP29%2CP30%2CP31%2CP32%2CP33%2CP34%2CP35%2CP36%2CP37%2CP38%2CP39%2CP40%2CP41%2CP42%2CP43%2CP44%2CP45%2CP46%2CP47%2CP48%2CP49%2CP50%2CP51%2CP52%2CP53%2CP54%2CP55%2CP56%2CP57%2CP58%2CP59%2CP60%2CP61%2CP62%2CP63%2CP64%2CP65%2CP66%2CP67%2CP68%2CP69%2CP70%2CP71%2CP72%2CP73%2CP74%2CP75%2CP76%2CP77%2CP78%2CP79%2CP80%2CP81%2CP82%2CP83%2CP84%2CP85%2CP86%2CP87%2CP88%2CP89%2CP90%2CP91%2CP92%2CP93%2CP94%2CP95%2CP96%2CP97%2CP98%2CP99%2CP100&title=100+bars+at+the+cap&format=png",
+  "status": 200,
+  "bytes": 37644,
+  "content_type": null,
+  "alt": "100 bars at the cap. 100 bars at the cap peaks at 2,394 for P86 and bottoms at 397 for P29. It increased 12.4% from first to last point.",
+  "findings": "warning:dense-chart",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-100-points-bar.bin"
+ },
+ "edge-all-negative": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=-10%2C-25%2C-40%2C-15%2C-30&labels=A%2CB%2CC%2CD%2CE&title=All+negative+values&format=png",
+  "status": 200,
+  "bytes": 15306,
+  "content_type": null,
+  "alt": "All negative values. All negative values peaks at -10 for A and bottoms at -40 for C. It decreased 200.0% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-all-negative.bin"
+ },
+ "edge-mixed-sign": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=-40%2C-10%2C15%2C60%2C-5%2C30&labels=Jan%2CFeb%2CMar%2CApr%2CMay%2CJun&title=Mixed+positive+and+negative&format=png",
+  "status": 200,
+  "bytes": 20468,
+  "content_type": null,
+  "alt": "Mixed positive and negative. Mixed positive and negative peaks at 60 for Apr and bottoms at -40 for Jan. It increased 175.0% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-mixed-sign.bin"
+ },
+ "edge-mixed-sign-line": {
+  "url": "https://chartrelay.dev/chart?type=line&data=-40%2C-10%2C15%2C60%2C-5%2C30&labels=Jan%2CFeb%2CMar%2CApr%2CMay%2CJun&title=Mixed+sign%2C+line&format=png",
+  "status": 200,
+  "bytes": 26673,
+  "content_type": null,
+  "alt": "Mixed sign, line. Mixed sign, line peaks at 60 for Apr and bottoms at -40 for Jan. It increased 175.0% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-mixed-sign-line.bin"
+ },
+ "edge-all-zeros": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=0%2C0%2C0%2C0%2C0&labels=A%2CB%2CC%2CD%2CE&title=All+zeros&format=png",
+  "status": 200,
+  "bytes": 14158,
+  "content_type": null,
+  "alt": "All zeros. All zeros stays flat at 0 across all 5 points.",
+  "findings": "tip:healthy",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-all-zeros.bin"
+ },
+ "edge-all-zeros-pie": {
+  "url": "https://chartrelay.dev/chart?type=pie&data=0%2C0%2C0%2C0&labels=A%2CB%2CC%2CD&title=All+zeros%2C+pie&format=png",
+  "status": 200,
+  "bytes": 8922,
+  "content_type": null,
+  "alt": "All zeros, pie. Pie chart of All zeros, pie across 4 categories. Largest: A 0%, B 0%, C 0%. Smallest: D 0%.",
+  "findings": "tip:healthy",
+  "style_hdr": "classic",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-all-zeros-pie.bin"
+ },
+ "edge-single-zero": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=0&labels=Zero&title=A+single+zero&format=png",
+  "status": 200,
+  "bytes": 14610,
+  "content_type": null,
+  "alt": "A single zero. A single zero has a single data point: 0 for Zero.",
+  "findings": "tip:single-point",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-single-zero.bin"
+ },
+ "edge-huge-vs-tiny": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=1%2C10000000%2C3%2C2&labels=One%2CTen+million%2CThree%2CTwo&title=One+huge+value+beside+tiny+ones&format=png",
+  "status": 200,
+  "bytes": 20160,
+  "content_type": null,
+  "alt": "One huge value beside tiny ones. One huge value beside tiny ones peaks at 10,000,000 for Ten million and bottoms at 1 for One. It increased 100.0% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-huge-vs-tiny.bin"
+ },
+ "edge-huge-vs-tiny-pie": {
+  "url": "https://chartrelay.dev/chart?type=pie&data=1%2C10000000%2C3%2C2&labels=One%2CTen+million%2CThree%2CTwo&title=Huge+vs+tiny%2C+pie&format=png",
+  "status": 200,
+  "bytes": 16871,
+  "content_type": null,
+  "alt": "Huge vs tiny, pie. Pie chart of Huge vs tiny, pie across 4 categories. Largest: Ten million 100%, Three 0%, Two 0%. Smallest: One 0%.",
+  "findings": "tip:healthy",
+  "style_hdr": "classic",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-huge-vs-tiny-pie.bin"
+ },
+ "edge-long-labels": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=10%2C20%2C30&labels=Quarterly+revenue+from+the+EMEA+region+excluding+intercompany+transfers%2CCustomer+acquisition+cost+blended+across+paid+and+organic%2CNet+revenue+retention+for+enterprise+accounts+only&title=Very+long+category+labels&format=png",
+  "status": 200,
+  "bytes": 29159,
+  "content_type": null,
+  "alt": "Very long category labels. Very long category labels peaks at 30 for Net revenue retention for enterprise accounts only and bottoms at 10 for Quarterly revenue from the EMEA region excluding intercompany transfers. It increased 200.0% from first to last point.",
+  "findings": "tip:long-labels",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-long-labels.bin"
+ },
+ "edge-long-labels-pie": {
+  "url": "https://chartrelay.dev/chart?type=pie&data=10%2C20%2C30&labels=Quarterly+revenue+from+the+EMEA+region+excluding+intercompany+transfers%2CCustomer+acquisition+cost+blended+across+paid+and+organic%2CNet+revenue+retention+for+enterprise+accounts+only&title=Long+labels+on+a+pie&format=png",
+  "status": 200,
+  "bytes": 25501,
+  "content_type": null,
+  "alt": "Long labels on a pie. Pie chart of Long labels on a pie across 3 categories. Largest: Net revenue retention for enterprise accounts only 50%, Customer acquisition cost blended across paid and organic 33%, Quarterly revenue from the EMEA region excluding intercompany transfers 17%.",
+  "findings": "tip:healthy",
+  "style_hdr": "classic",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-long-labels-pie.bin"
+ },
+ "edge-long-title": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=10%2C20%2C30%2C40&labels=Q1%2CQ2%2CQ3%2CQ4&title=Quarterly+recurring+revenue+by+segment+and+region+for+the+trailing+twelve+months+ending+September+including+all+adjust&format=png",
+  "status": 400,
+  "bytes": 10604,
+  "content_type": null,
+  "alt": null,
+  "findings": null,
+  "style_hdr": null,
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-long-title.bin"
+ },
+ "edge-unicode-cjk": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=120%2C340%2C260%2C410&labels=%E7%AC%AC%E4%B8%80%E5%AD%A3%E5%BA%A6%2C%E7%AC%AC%E4%BA%8C%E5%AD%A3%E5%BA%A6%2C%E7%AC%AC%E4%B8%89%E5%AD%A3%E5%BA%A6%2C%E7%AC%AC%E5%9B%9B%E5%AD%A3%E5%BA%A6&title=%E5%B9%B4%E5%BA%A6%E5%A3%B2%E4%B8%8A%E9%AB%98%E3%81%AE%E6%8E%A8%E7%A7%BB+%28CJK+title%29&format=png",
+  "status": 500,
+  "bytes": 0,
+  "content_type": null,
+  "alt": null,
+  "findings": null,
+  "style_hdr": null,
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-unicode-cjk.bin"
+ },
+ "edge-unicode-emoji": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=12%2C34%2C26%2C41&labels=%F0%9F%9A%80+Launch%2C%F0%9F%94%A5+Growth%2C%F0%9F%93%89+Dip%2C%F0%9F%8E%89+Peak&title=Emoji+labels+%F0%9F%93%8A+and+title+%F0%9F%9A%80&format=png",
+  "status": 500,
+  "bytes": 0,
+  "content_type": null,
+  "alt": null,
+  "findings": null,
+  "style_hdr": null,
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-unicode-emoji.bin"
+ },
+ "edge-unicode-arabic": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=12%2C34%2C26%2C41&labels=%D8%A7%D9%84%D8%B1%D8%A8%D8%B9+%D8%A7%D9%84%D8%A3%D9%88%D9%84%2C%D8%A7%D9%84%D8%B1%D8%A8%D8%B9+%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%2C%D8%A7%D9%84%D8%B1%D8%A8%D8%B9+%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%2C%D8%A7%D9%84%D8%B1%D8%A8%D8%B9+%D8%A7%D9%84%D8%B1%D8%A7%D8%A8%D8%B9&title=%D8%A7%D9%84%D8%A5%D9%8A%D8%B1%D8%A7%D8%AF%D8%A7%D8%AA+%D8%A7%D9%84%D8%B3%D9%86%D9%88%D9%8A%D8%A9+%D8%AD%D8%B3%D8%A8+%D8%A7%D9%84%D8%B1%D8%A8%D8%B9&format=png",
+  "status": 500,
+  "bytes": 0,
+  "content_type": null,
+  "alt": null,
+  "findings": null,
+  "style_hdr": null,
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-unicode-arabic.bin"
+ },
+ "edge-unicode-combining": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=12%2C34%2C26&labels=Ame%CC%81lie%2CNou%CC%88rdstro%CC%88m%2CZu%CC%80rich&title=Combining+accents%3A+Cafe%CC%81+Nai%CC%88ve+Su%CC%8Ard&format=png",
+  "status": 500,
+  "bytes": 0,
+  "content_type": null,
+  "alt": null,
+  "findings": null,
+  "style_hdr": null,
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-unicode-combining.bin"
+ },
+ "edge-unicode-mixed": {
+  "url": "https://chartrelay.dev/chart?type=line&data=12%2C34%2C26%2C41&labels=%E6%97%A5%E6%9C%AC%2C%F0%9F%87%AB%F0%9F%87%B7%2C%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9%2CZ%C3%BCrich&title=Mixed+scripts+%E6%B7%B7%E5%90%88+%F0%9F%8C%8D+%D9%85%D8%AE%D8%AA%D9%84%D8%B7&format=png",
+  "status": 500,
+  "bytes": 0,
+  "content_type": null,
+  "alt": null,
+  "findings": null,
+  "style_hdr": null,
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-unicode-mixed.bin"
+ },
+ "edge-xml-title": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=10%2C20%2C30&labels=A%2CB%2CC&title=Profit+%26+loss+%3Cb%3Ebold%3C%2Fb%3E+%22quoted%22+%27single%27+%3E50%25&format=png",
+  "status": 200,
+  "bytes": 21982,
+  "content_type": null,
+  "alt": "Profit & loss <b>bold</b> \"quoted\" 'single' >50%. Profit & loss <b>bold</b> \"quoted\" 'single' >50% peaks at 30 for C and bottoms at 10 for A. It increased 200.0% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-xml-title.bin"
+ },
+ "edge-xml-labels": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=10%2C20%2C30%2C15&labels=R%26D%2C%3Cscript%3Ex%3C%2Fscript%3E%2C%22Quoted%22%2CA+%3E+B&title=XML-hostile+labels&format=png",
+  "status": 200,
+  "bytes": 19874,
+  "content_type": null,
+  "alt": "XML-hostile labels. XML-hostile labels peaks at 30 for \"Quoted\" and bottoms at 10 for R&D. It increased 50.0% from first to last point.",
+  "findings": "tip:long-labels",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-xml-labels.bin"
+ },
+ "edge-xml-both": {
+  "url": "https://chartrelay.dev/chart?type=pie&data=10%2C20%2C30&labels=%26amp%3B%2C%3Ctag%3E%2C%22q%22&title=%26%3C%3E%22%27+in+title+%26+labels&format=png",
+  "status": 200,
+  "bytes": 18898,
+  "content_type": null,
+  "alt": "&<>\"' in title & labels. Pie chart of &<>\"' in title & labels across 3 categories. Largest: \"q\" 50%, <tag> 33%, &amp; 17%.",
+  "findings": "tip:healthy",
+  "style_hdr": "classic",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-xml-both.bin"
+ },
+ "edge-12-series-max": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=10%2C15%2C20%2C25%2C30%7C13%2C18%2C23%2C28%2C33%7C16%2C21%2C26%2C31%2C36%7C19%2C24%2C29%2C34%2C39%7C22%2C27%2C32%2C37%2C42%7C25%2C30%2C35%2C40%2C45%7C28%2C33%2C38%2C43%2C48%7C31%2C36%2C41%2C46%2C51%7C34%2C39%2C44%2C49%2C54%7C37%2C42%2C47%2C52%2C57%7C40%2C45%2C50%2C55%2C60%7C43%2C48%2C53%2C58%2C63&labels=A%2CB%2CC%2CD%2CE&names=Series+1%2CSeries+2%2CSeries+3%2CSeries+4%2CSeries+5%2CSeries+6%2CSeries+7%2CSeries+8%2CSeries+9%2CSeries+10%2CSeries+11%2CSeries+12&title=12+series+%28max+allowed%29&format=png",
+  "status": 400,
+  "bytes": 12141,
+  "content_type": null,
+  "alt": null,
+  "findings": null,
+  "style_hdr": null,
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-12-series-max.bin"
+ },
+ "edge-12-series-line": {
+  "url": "https://chartrelay.dev/chart?type=line&data=10%2C15%2C20%2C25%2C30%7C13%2C18%2C23%2C28%2C33%7C16%2C21%2C26%2C31%2C36%7C19%2C24%2C29%2C34%2C39%7C22%2C27%2C32%2C37%2C42%7C25%2C30%2C35%2C40%2C45%7C28%2C33%2C38%2C43%2C48%7C31%2C36%2C41%2C46%2C51%7C34%2C39%2C44%2C49%2C54%7C37%2C42%2C47%2C52%2C57%7C40%2C45%2C50%2C55%2C60%7C43%2C48%2C53%2C58%2C63&labels=A%2CB%2CC%2CD%2CE&names=Series+1%2CSeries+2%2CSeries+3%2CSeries+4%2CSeries+5%2CSeries+6%2CSeries+7%2CSeries+8%2CSeries+9%2CSeries+10%2CSeries+11%2CSeries+12&title=12+series%2C+line&format=png",
+  "status": 400,
+  "bytes": 12141,
+  "content_type": null,
+  "alt": null,
+  "findings": null,
+  "style_hdr": null,
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-12-series-line.bin"
+ },
+ "edge-13-series-over-max": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=10%2C15%2C20%2C25%2C30%7C13%2C18%2C23%2C28%2C33%7C16%2C21%2C26%2C31%2C36%7C19%2C24%2C29%2C34%2C39%7C22%2C27%2C32%2C37%2C42%7C25%2C30%2C35%2C40%2C45%7C28%2C33%2C38%2C43%2C48%7C31%2C36%2C41%2C46%2C51%7C34%2C39%2C44%2C49%2C54%7C37%2C42%2C47%2C52%2C57%7C40%2C45%2C50%2C55%2C60%7C43%2C48%2C53%2C58%2C63%7C46%2C51%2C56%2C61%2C66&labels=A%2CB%2CC%2CD%2CE&names=Series+1%2CSeries+2%2CSeries+3%2CSeries+4%2CSeries+5%2CSeries+6%2CSeries+7%2CSeries+8%2CSeries+9%2CSeries+10%2CSeries+11%2CSeries+12%2CSeries+13&title=13+series+%28one+over+max%29&format=png",
+  "status": 400,
+  "bytes": 9055,
+  "content_type": null,
+  "alt": null,
+  "findings": null,
+  "style_hdr": null,
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-13-series-over-max.bin"
+ },
+ "edge-no-title": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=10%2C20%2C30%2C40&labels=Q1%2CQ2%2CQ3%2CQ4&format=png",
+  "status": 200,
+  "bytes": 17429,
+  "content_type": null,
+  "alt": "Untitled chart. Value peaks at 40 for Q4 and bottoms at 10 for Q1. It increased 300.0% from first to last point.",
+  "findings": "warning:missing-title",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-no-title.bin"
+ },
+ "edge-no-title-line": {
+  "url": "https://chartrelay.dev/chart?type=line&data=10%2C20%2C30%2C40&labels=Q1%2CQ2%2CQ3%2CQ4&format=png",
+  "status": 200,
+  "bytes": 19443,
+  "content_type": null,
+  "alt": "Untitled chart. Value peaks at 40 for Q4 and bottoms at 10 for Q1. It increased 300.0% from first to last point.",
+  "findings": "warning:missing-title",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-no-title-line.bin"
+ },
+ "edge-prefix-suffix": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=18400%2C21300%2C24700%2C26900&labels=Apr%2CMay%2CJun%2CJul&title=Prefix+and+suffix+together&prefix=%24&suffix=+MRR&values=1&format=png",
+  "status": 200,
+  "bytes": 21216,
+  "content_type": null,
+  "alt": "Prefix and suffix together. Prefix and suffix together peaks at 26,900 for Jul and bottoms at 18,400 for Apr. It increased 46.2% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-prefix-suffix.bin"
+ },
+ "edge-focus-note": {
+  "url": "https://chartrelay.dev/chart?type=line&data=18400%2C21300%2C24700%2C26900%2C31200%2C33900&labels=Apr%2CMay%2CJun%2CJul%2CAug%2CSep&title=Focus+and+a+note&focus=4&note=Pricing+change+landed+here&noteAt=4&format=png",
+  "status": 200,
+  "bytes": 24764,
+  "content_type": null,
+  "alt": "Focus and a note. Focus and a note peaks at 33,900 for Sep and bottoms at 18,400 for Apr. It increased 84.2% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-focus-note.bin"
+ },
+ "edge-focus-note-bar": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=18400%2C21300%2C24700%2C26900%2C31200%2C33900&labels=Apr%2CMay%2CJun%2CJul%2CAug%2CSep&title=Focus+and+note+on+a+bar+chart&focus=2&note=Trough+before+recovery&noteAt=2&prefix=%24&suffix=%2Fmo&format=png",
+  "status": 200,
+  "bytes": 22531,
+  "content_type": null,
+  "alt": "Focus and note on a bar chart. Focus and note on a bar chart peaks at 33,900 for Sep and bottoms at 18,400 for Apr. It increased 84.2% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-focus-note-bar.bin"
+ },
+ "edge-title-80-max-ok": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=10%2C20%2C30%2C40&labels=Q1%2CQ2%2CQ3%2CQ4&title=Quarterly+recurring+revenue+by+segment+and+region+for+the+trailing+twelve+months&format=png",
+  "status": 200,
+  "bytes": 24350,
+  "content_type": null,
+  "alt": "Quarterly recurring revenue by segment and region for the trailing twelve months. Quarterly recurring revenue by segment and region for the trailing twelve months peaks at 40 for Q4 and bottoms at 10 for Q1. It increased 300.0% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-title-80-max-ok.bin"
+ },
+ "edge-title-81-rejected": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=10%2C20%2C30%2C40&labels=Q1%2CQ2%2CQ3%2CQ4&title=Quarterly+recurring+revenue+by+segment+and+region+for+the+trailing+twelve+months+&format=png",
+  "status": 200,
+  "bytes": 24350,
+  "content_type": null,
+  "alt": "Quarterly recurring revenue by segment and region for the trailing twelve months. Quarterly recurring revenue by segment and region for the trailing twelve months peaks at 40 for Q4 and bottoms at 10 for Q1. It increased 300.0% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-title-81-rejected.bin"
+ },
+ "edge-title-118-near-schema-max": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=10%2C20%2C30%2C40&labels=Q1%2CQ2%2CQ3%2CQ4&title=Quarterly+recurring+revenue+by+segment+and+region+for+the+trailing+twelve+months+ending+September+including+all+adjust&format=png",
+  "status": 400,
+  "bytes": 10604,
+  "content_type": null,
+  "alt": null,
+  "findings": null,
+  "style_hdr": null,
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-title-118-near-schema-max.bin"
+ },
+ "edge-title-118-with-names": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=10%2C20%2C30%2C40&labels=Q1%2CQ2%2CQ3%2CQ4&title=Quarterly+recurring+revenue+by+segment+and+region+for+the+trailing+twelve+months+ending+September+including+all+adjust&names=Revenue&format=png",
+  "status": 200,
+  "bytes": 25221,
+  "content_type": null,
+  "alt": "Quarterly recurring revenue by segment and region for the trailing twelve months ending September including all adjust. Revenue peaks at 40 for Q4 and bottoms at 10 for Q1. It increased 300.0% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-title-118-with-names.bin"
+ },
+ "edge-8-series-max": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=10%2C16%2C22%2C28%2C34%7C14%2C20%2C26%2C32%2C38%7C18%2C24%2C30%2C36%2C42%7C22%2C28%2C34%2C40%2C46%7C26%2C32%2C38%2C44%2C50%7C30%2C36%2C42%2C48%2C54%7C34%2C40%2C46%2C52%2C58%7C38%2C44%2C50%2C56%2C62&labels=A%2CB%2CC%2CD%2CE&names=Series+1%2CSeries+2%2CSeries+3%2CSeries+4%2CSeries+5%2CSeries+6%2CSeries+7%2CSeries+8&title=8+series+%28renderer+max%29&format=png",
+  "status": 200,
+  "bytes": 51693,
+  "content_type": null,
+  "alt": "8 series (renderer max). Series 1 peaks at 34 for E and bottoms at 10 for A. It increased 240.0% from first to last point. 7 more series shown.",
+  "findings": "warning:too-many-series",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-8-series-max.bin"
+ },
+ "edge-8-series-line": {
+  "url": "https://chartrelay.dev/chart?type=line&data=10%2C16%2C22%2C28%2C34%7C14%2C20%2C26%2C32%2C38%7C18%2C24%2C30%2C36%2C42%7C22%2C28%2C34%2C40%2C46%7C26%2C32%2C38%2C44%2C50%7C30%2C36%2C42%2C48%2C54%7C34%2C40%2C46%2C52%2C58%7C38%2C44%2C50%2C56%2C62&labels=A%2CB%2CC%2CD%2CE&names=Series+1%2CSeries+2%2CSeries+3%2CSeries+4%2CSeries+5%2CSeries+6%2CSeries+7%2CSeries+8&title=8+series%2C+line&format=png",
+  "status": 200,
+  "bytes": 50342,
+  "content_type": null,
+  "alt": "8 series, line. Series 1 peaks at 34 for E and bottoms at 10 for A. It increased 240.0% from first to last point. 7 more series shown.",
+  "findings": "warning:too-many-series",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-8-series-line.bin"
+ },
+ "edge-8-series-pie": {
+  "url": "https://chartrelay.dev/chart?type=pie&data=10%2C16%2C22%2C28%2C34%7C14%2C20%2C26%2C32%2C38%7C18%2C24%2C30%2C36%2C42%7C22%2C28%2C34%2C40%2C46%7C26%2C32%2C38%2C44%2C50%7C30%2C36%2C42%2C48%2C54%7C34%2C40%2C46%2C52%2C58%7C38%2C44%2C50%2C56%2C62&labels=A%2CB%2CC%2CD%2CE&names=Series+1%2CSeries+2%2CSeries+3%2CSeries+4%2CSeries+5%2CSeries+6%2CSeries+7%2CSeries+8&title=8+series%2C+pie&format=png",
+  "status": 200,
+  "bytes": 19829,
+  "content_type": null,
+  "alt": "8 series, pie. Pie chart of Series 1 across 5 categories. Largest: E 31%, D 25%, C 20%. Smallest: A 9%.",
+  "findings": "error:pie-multiple-series,warning:too-many-series",
+  "style_hdr": "classic",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-8-series-pie.bin"
+ },
+ "edge-9-series-over-max": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=10%2C16%2C22%2C28%2C34%7C14%2C20%2C26%2C32%2C38%7C18%2C24%2C30%2C36%2C42%7C22%2C28%2C34%2C40%2C46%7C26%2C32%2C38%2C44%2C50%7C30%2C36%2C42%2C48%2C54%7C34%2C40%2C46%2C52%2C58%7C38%2C44%2C50%2C56%2C62%7C42%2C48%2C54%2C60%2C66&labels=A%2CB%2CC%2CD%2CE&names=Series+1%2CSeries+2%2CSeries+3%2CSeries+4%2CSeries+5%2CSeries+6%2CSeries+7%2CSeries+8%2CSeries+9&title=9+series+%28one+over%29&format=png",
+  "status": 400,
+  "bytes": 12141,
+  "content_type": null,
+  "alt": null,
+  "findings": null,
+  "style_hdr": null,
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-9-series-over-max.bin"
+ },
+ "edge-subtitle-cjk": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=10%2C20%2C30&labels=A%2CB%2CC&title=ASCII+title&subtitle=%E5%A3%B2%E4%B8%8A%E9%AB%98%E3%81%AE%E6%8E%A8%E7%A7%BB+CJK+subtitle&format=png",
+  "status": 200,
+  "bytes": 19658,
+  "content_type": null,
+  "alt": "ASCII title. ASCII title peaks at 30 for C and bottoms at 10 for A. It increased 200.0% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-subtitle-cjk.bin"
+ },
+ "edge-source-cyrillic": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=10%2C20%2C30&labels=A%2CB%2CC&title=ASCII+title&source=%D0%98%D1%81%D1%82%D0%BE%D1%87%D0%BD%D0%B8%D0%BA%3A+%D0%A2%D0%B5%D1%81%D1%82&format=png",
+  "status": 200,
+  "bytes": 18025,
+  "content_type": null,
+  "alt": "ASCII title. ASCII title peaks at 30 for C and bottoms at 10 for A. It increased 200.0% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-source-cyrillic.bin"
+ },
+ "edge-note-greek": {
+  "url": "https://chartrelay.dev/chart?type=line&data=10%2C20%2C30%2C40&labels=A%2CB%2CC%2CD&title=Note+with+Greek+sigma&note=%CF%83+spike+here&noteAt=2&format=png",
+  "status": 200,
+  "bytes": 22857,
+  "content_type": null,
+  "alt": "Note with Greek sigma. Note with Greek sigma peaks at 40 for D and bottoms at 10 for A. It increased 300.0% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-note-greek.bin"
+ },
+ "edge-label-cjk-500": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=10%2C20%2C30&labels=%E6%9D%B1%E4%BA%AC%2C%E5%A4%A7%E9%98%AA%2C%E4%BA%AC%E9%83%BD&title=CJK+labels&format=png",
+  "status": 500,
+  "bytes": 0,
+  "content_type": null,
+  "alt": null,
+  "findings": null,
+  "style_hdr": null,
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-label-cjk-500.bin"
+ },
+ "edge-title-cjk-500": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=10%2C20%2C30&labels=A%2CB%2CC&title=%E5%B9%B4%E5%BA%A6%E5%A3%B2%E4%B8%8A%E9%AB%98&format=png",
+  "status": 500,
+  "bytes": 0,
+  "content_type": null,
+  "alt": null,
+  "findings": null,
+  "style_hdr": null,
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-title-cjk-500.bin"
+ },
+ "refusal-101-points": {
+  "url": "https://chartrelay.dev/chart?type=line&data=1%2C2%2C3%2C4%2C5%2C6%2C7%2C8%2C9%2C10%2C11%2C12%2C13%2C14%2C15%2C16%2C17%2C18%2C19%2C20%2C21%2C22%2C23%2C24%2C25%2C26%2C27%2C28%2C29%2C30%2C31%2C32%2C33%2C34%2C35%2C36%2C37%2C38%2C39%2C40%2C41%2C42%2C43%2C44%2C45%2C46%2C47%2C48%2C49%2C50%2C51%2C52%2C53%2C54%2C55%2C56%2C57%2C58%2C59%2C60%2C61%2C62%2C63%2C64%2C65%2C66%2C67%2C68%2C69%2C70%2C71%2C72%2C73%2C74%2C75%2C76%2C77%2C78%2C79%2C80%2C81%2C82%2C83%2C84%2C85%2C86%2C87%2C88%2C89%2C90%2C91%2C92%2C93%2C94%2C95%2C96%2C97%2C98%2C99%2C100%2C101&title=101+points+refusal+card&format=png",
+  "status": 400,
+  "bytes": 10173,
+  "content_type": null,
+  "alt": null,
+  "findings": null,
+  "style_hdr": null,
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/refusal-101-points.bin"
+ },
+ "refusal-9-series": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=10%2C16%2C22%2C28%2C34%7C14%2C20%2C26%2C32%2C38%7C18%2C24%2C30%2C36%2C42%7C22%2C28%2C34%2C40%2C46%7C26%2C32%2C38%2C44%2C50%7C30%2C36%2C42%2C48%2C54%7C34%2C40%2C46%2C52%2C58%7C38%2C44%2C50%2C56%2C62%7C42%2C48%2C54%2C60%2C66&labels=A%2CB%2CC%2CD%2CE&names=Series+1%2CSeries+2%2CSeries+3%2CSeries+4%2CSeries+5%2CSeries+6%2CSeries+7%2CSeries+8%2CSeries+9&title=9+series+refusal+card&format=png",
+  "status": 400,
+  "bytes": 12141,
+  "content_type": null,
+  "alt": null,
+  "findings": null,
+  "style_hdr": null,
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/refusal-9-series.bin"
+ },
+ "edge-values-shown": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=18400%2C21300%2C24700%2C26900&labels=Apr%2CMay%2CJun%2CJul&title=Values+on%2C+prefix+and+suffix&prefix=%24&suffix=k&values=1&format=png",
+  "status": 200,
+  "bytes": 21435,
+  "content_type": null,
+  "alt": "Values on, prefix and suffix. Values on, prefix and suffix peaks at 26,900 for Jul and bottoms at 18,400 for Apr. It increased 46.2% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-values-shown.bin"
+ },
+ "edge-tiny-canvas": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=10%2C20%2C30%2C40%2C50&labels=Alpha%2CBravo%2CCharlie%2CDelta%2CEcho&title=Minimum+canvas+320x240&w=320&h=240&format=png",
+  "status": 200,
+  "bytes": 22148,
+  "content_type": null,
+  "alt": "Minimum canvas 320x240. Minimum canvas 320x240 peaks at 50 for Echo and bottoms at 10 for Alpha. It increased 400.0% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-tiny-canvas.bin"
+ },
+ "edge-huge-canvas": {
+  "url": "https://chartrelay.dev/chart?type=line&data=10%2C20%2C30%2C40%2C50&labels=Alpha%2CBravo%2CCharlie%2CDelta%2CEcho&title=Max+canvas+2400x1600&w=2400&h=1600&format=png",
+  "status": 200,
+  "bytes": 26112,
+  "content_type": null,
+  "alt": "Max canvas 2400x1600. Max canvas 2400x1600 peaks at 50 for Echo and bottoms at 10 for Alpha. It increased 400.0% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-huge-canvas.bin"
+ },
+ "edge-legend-off": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=10%2C20%2C30%7C15%2C25%2C35&labels=A%2CB%2CC&names=First%2CSecond&title=Legend+off%2C+two+series&legend=0&format=png",
+  "status": 200,
+  "bytes": 22788,
+  "content_type": null,
+  "alt": "Legend off, two series. First peaks at 30 for C and bottoms at 10 for A. It increased 200.0% from first to last point. 1 more series shown.",
+  "findings": "tip:healthy",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-legend-off.bin"
+ },
+ "edge-all-negative-classic": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=-10%2C-25%2C-40%2C-15%2C-30&labels=A%2CB%2CC%2CD%2CE&title=All+negative%2C+classic&style=classic&format=png",
+  "status": 200,
+  "bytes": 18730,
+  "content_type": null,
+  "alt": "All negative, classic. All negative, classic peaks at -10 for A and bottoms at -40 for C. It decreased 200.0% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "classic",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-all-negative-classic.bin"
+ },
+ "edge-all-negative-line-editorial": {
+  "url": "https://chartrelay.dev/chart?type=line&data=-10%2C-25%2C-40%2C-15%2C-30&labels=A%2CB%2CC%2CD%2CE&title=All+negative%2C+line+editorial&format=png",
+  "status": 200,
+  "bytes": 15859,
+  "content_type": null,
+  "alt": "All negative, line editorial. All negative, line editorial peaks at -10 for A and bottoms at -40 for C. It decreased 200.0% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-all-negative-line-editorial.bin"
+ },
+ "edge-all-negative-line-classic": {
+  "url": "https://chartrelay.dev/chart?type=line&data=-10%2C-25%2C-40%2C-15%2C-30&labels=A%2CB%2CC%2CD%2CE&title=All+negative%2C+line+classic&style=classic&format=png",
+  "status": 200,
+  "bytes": 22321,
+  "content_type": null,
+  "alt": "All negative, line classic. All negative, line classic peaks at -10 for A and bottoms at -40 for C. It decreased 200.0% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "classic",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-all-negative-line-classic.bin"
+ },
+ "edge-all-negative-dark": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=-10%2C-25%2C-40%2C-15%2C-30&labels=A%2CB%2CC%2CD%2CE&title=All+negative%2C+dark&theme=dark&format=png",
+  "status": 200,
+  "bytes": 15165,
+  "content_type": null,
+  "alt": "All negative, dark. All negative, dark peaks at -10 for A and bottoms at -40 for C. It decreased 200.0% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-all-negative-dark.bin"
+ },
+ "edge-one-negative-editorial": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=10%2C25%2C-40%2C15%2C30&labels=A%2CB%2CC%2CD%2CE&title=One+negative+among+positives&format=png",
+  "status": 200,
+  "bytes": 20712,
+  "content_type": null,
+  "alt": "One negative among positives. One negative among positives peaks at 30 for E and bottoms at -40 for C. It increased 200.0% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-one-negative-editorial.bin"
+ },
+ "edge-mixed-sign-classic": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=-40%2C-10%2C15%2C60%2C-5%2C30&labels=Jan%2CFeb%2CMar%2CApr%2CMay%2CJun&title=Mixed+sign%2C+classic&style=classic&format=png",
+  "status": 200,
+  "bytes": 16891,
+  "content_type": null,
+  "alt": "Mixed sign, classic. Mixed sign, classic peaks at 60 for Apr and bottoms at -40 for Jan. It increased 175.0% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "classic",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-mixed-sign-classic.bin"
+ },
+ "edge-all-zeros-classic": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=0%2C0%2C0%2C0%2C0&labels=A%2CB%2CC%2CD%2CE&title=All+zeros%2C+classic&style=classic&format=png",
+  "status": 200,
+  "bytes": 12091,
+  "content_type": null,
+  "alt": "All zeros, classic. All zeros, classic stays flat at 0 across all 5 points.",
+  "findings": "tip:healthy",
+  "style_hdr": "classic",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-all-zeros-classic.bin"
+ },
+ "edge-2-series-bar-editorial": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=10%2C20%2C30%7C15%2C25%2C35&labels=A%2CB%2CC&names=First%2CSecond&title=Two+series%2C+bar%2C+editorial&format=png",
+  "status": 200,
+  "bytes": 24200,
+  "content_type": null,
+  "alt": "Two series, bar, editorial. First peaks at 30 for C and bottoms at 10 for A. It increased 200.0% from first to last point. 1 more series shown.",
+  "findings": "tip:healthy",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-2-series-bar-editorial.bin"
+ },
+ "edge-2-series-bar-classic": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=10%2C20%2C30%7C15%2C25%2C35&labels=A%2CB%2CC&names=First%2CSecond&title=Two+series%2C+bar%2C+classic&style=classic&format=png",
+  "status": 200,
+  "bytes": 19366,
+  "content_type": null,
+  "alt": "Two series, bar, classic. First peaks at 30 for C and bottoms at 10 for A. It increased 200.0% from first to last point. 1 more series shown.",
+  "findings": "tip:healthy",
+  "style_hdr": "classic",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-2-series-bar-classic.bin"
+ },
+ "edge-3-series-bar-editorial": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=10%2C20%2C30%7C15%2C25%2C35%7C5%2C12%2C18&labels=A%2CB%2CC&names=First%2CSecond%2CThird&title=Three+series%2C+bar%2C+editorial&format=png",
+  "status": 200,
+  "bytes": 27277,
+  "content_type": null,
+  "alt": "Three series, bar, editorial. First peaks at 30 for C and bottoms at 10 for A. It increased 200.0% from first to last point. 2 more series shown.",
+  "findings": "tip:healthy",
+  "style_hdr": "editorial",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-3-series-bar-editorial.bin"
+ },
+ "edge-prefix-suffix-classic": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=18400%2C21300%2C24700%2C26900&labels=Apr%2CMay%2CJun%2CJul&title=Prefix+and+suffix%2C+classic&prefix=%24&suffix=+MRR&values=1&style=classic&format=png",
+  "status": 200,
+  "bytes": 25499,
+  "content_type": null,
+  "alt": "Prefix and suffix, classic. Prefix and suffix, classic peaks at 26,900 for Jul and bottoms at 18,400 for Apr. It increased 46.2% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "classic",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-prefix-suffix-classic.bin"
+ },
+ "edge-values-classic": {
+  "url": "https://chartrelay.dev/chart?type=bar&data=10%2C20%2C30%2C40&labels=A%2CB%2CC%2CD&title=Show+values%2C+classic&values=1&style=classic&format=png",
+  "status": 200,
+  "bytes": 20751,
+  "content_type": null,
+  "alt": "Show values, classic. Show values, classic peaks at 40 for D and bottoms at 10 for A. It increased 300.0% from first to last point.",
+  "findings": "tip:healthy",
+  "style_hdr": "classic",
+  "path": "/Users/jessicasalgado/Projects/chartrelay/reports/golden/edge-values-classic.bin"
+ }
+}
